@@ -1,10 +1,12 @@
 #HOW TO INSTALL APP
+Go to Linux terminal then follow the steps below:
 
 Update software. Install python3.4, pip3, django1.8
 
 ```
 sudo apt-get update
 sudo apt-get upgrade
+sudo apt-get intsall python3.4
 sudo apt-get install python3-pip
 sudo apt-get install libffi-dev libssl-dev
 sudo -H pip install --upgrade pip
@@ -17,9 +19,14 @@ sudo -H pip3 install --upgrade Django
 
 Clone repo (using HTTPS or SSL):
 ```
-git clone https://github.com/jbrayo/scrapbook.git
+git clone https://github.com/formidablefrank/scrapbook.git
 -or-
-git clone git@github.com:jbrayo/scrapbook.git
+git clone git@github.com:formidablefrank/scrapbook.git
+```
+
+Change working directory to repo
+```
+cd scrapbook
 ```
 
 Make virtualenv for the repo:
@@ -32,10 +39,35 @@ Activate virtualenv:
 source env/bin/activate
 ```
 
-Install depedencies:
+Install project depedencies:
 ```
 pip3 install -r requirements.txt
 ```
+
+Install NodeJS:
+```
+apt-get install curl
+curl --silent --location https://deb.nodesource.com/setup_0.12 | sudo bash -
+apt-get install --yes nodejs
+```
+
+Install Gulp and JQuery (http://semantic-ui.com/introduction/getting-started.html):
+```
+npm install -g gulp
+npm install jquery
+npm update
+npm install semantic-ui --save
+cd semantic/
+gulp build
+```
+
+Gulp watch for changes in style configs to update css/js files
+```
+gulp watch
+gulp serve
+gulp build
+```
+
 
 Django make migrations (after you update models and save objects):
 ```
