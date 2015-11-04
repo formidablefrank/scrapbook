@@ -1,4 +1,4 @@
-#HOW TO INSTALL APP
+#How to run the app
 Go to Linux terminal then follow the steps below:
 
 Update software. Install python3.4, pip3, django1.8
@@ -81,7 +81,17 @@ python3.4 manage.py check
 python3.4 manage.py runserver
 ```
 
+In your web browser, go to http://localhost:8000/
+
 Django-Python console:
 ```
 python3.4 manage.py shell
 ```
+
+#Options for IDE
+Lastly, install PyCharms Community Edition (IDE for Python/Django projects).
+This is optional, you can use basic code editors like Atom and Sublime
+https://www.jetbrains.com/pycharm/download/
+
+Next best is Atom Text Editor
+https://atom.io
