@@ -4,8 +4,23 @@
 
 <div class="ui container">
     <h1 class="ui header">Create Scrapbook</h1>
-    <p>Name</p>
-    <p>Blah</p>
+    <form class="ui form">
+        <div class="field">
+            <label>Name:</label>
+            <input type="text" name="scrapbook-name">
+        </div>
+        <div class="field">
+            <label>Duration:</label>
+            <input type="text" name="scrapbook-name">
+        </div>
+        <div class="field">
+            <div class="ui checkbox">
+                <input class="hidden" tabindex="0" type="checkbox">
+                <label>I agree to the Terms and Conditions</label>
+            </div>
+        </div>
+        <button class="ui button" type="submit">Submit</button>
+    </form>
 </div>
 
 {% endblock %}
