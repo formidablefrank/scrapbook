@@ -7,6 +7,7 @@
 
     <title>A Life's Journey - Welcome</title>
     {% load staticfiles %}
+    <link href='{% static "img/logo.jpg" %}' type='image/jpeg' rel='icon'/>
     <link rel="stylesheet" type="text/css" href="{% static 'dist/semantic_home.css' %}"/>
     <link rel="stylesheet" type="text/css" href="{% static 'css/home.css' %}"/>
 </head>
@@ -53,7 +54,7 @@
                     <p class="ui centered lead">
                         Keeping memories that's better than ever.
                     </p>
-                    <a href="{% url 'create' %}" class="large basic inverted animated fade ui button">
+                    <a href="{% url 'login' %}" class="large basic inverted animated fade ui button">
                         <div class="visible content">Go to dashboard</div>
                         <div class="hidden content">Get Started!</div>
                     </a>

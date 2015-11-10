@@ -1,0 +1,7 @@
+body{
+    background: #DADADA;
+}
+
+body .column{
+    margin: 100px auto;
+}
