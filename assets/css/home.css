@@ -2,6 +2,20 @@
             Global
 *******************************/
 
+@font-face {
+  font-family: 'hand';
+  src: url('../fonts/callie.otf') format('opentype');
+}
+
+.hand{
+  font-family: 'hand' !important;
+  font-size: 5em !important;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: antialiased;
+  -o-font-smoothing: antialiased;
+  font-smoothing: antialiased;
+}
+
 html {
   font-size: 14px;
 }
