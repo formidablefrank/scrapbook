@@ -18,5 +18,5 @@ def dashboard(request):
 
 
 def create(request):
-    context = {'pagename': 'Create Scrapbook'}
+    context = {'pagename': 'Create Scrapbook', 'create': True}
     return render(request, 'dashboard/create.html', context)

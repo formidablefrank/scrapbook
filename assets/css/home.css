@@ -2,24 +2,13 @@
             Global
 *******************************/
 
-@font-face {
-  font-family: 'hand';
-  src: url('../fonts/callie.otf') format('opentype');
-}
-
-.hand{
-  font-family: 'hand' !important;
-  font-size: 5em !important;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: antialiased;
-  -o-font-smoothing: antialiased;
-  font-smoothing: antialiased;
-}
-
 html {
   font-size: 14px;
 }
 
+h1.hand{
+    font-size: 5em !important;
+}
 
 /*******************************
             Global
@@ -74,14 +63,14 @@ border-radius: 0;
 #home .masthead .information p {
    display: block;
     text-align: center;
-    width: 100%; 
+    width: 100%;
     font-weight: 300;
     font-size: 20pt;
 }
 
 #home .masthead .information .button{
-    margin: 40px auto 20px auto; 
-    display: block; 
+    margin: 40px auto 20px auto;
+    display: block;
     width: 200px;
     border-radius: 500px;
 }
@@ -135,7 +124,7 @@ border-radius: 0;
 }
 #home .ui.vertical.feature.segment .column.column-feature{
     border: 1px solid #eee;
-    border-top: 0;   
+    border-top: 0;
 }
 
 #home .ui.vertical.feature.segment .column.column-feature:nth-child(2){
@@ -159,7 +148,7 @@ font-weight: 300;margin: 0;padding: 30px 0 0 0;font-size: 16pt;letter-spacing: 1
 }
 .ui.menu .item{
     color: rgba(255,255,255,0.4);
-    
+
 }
 .ui.secondary.pointing.menu > .menu > .item, .ui.secondary.pointing.menu > .item{
     border-bottom-width: 1px;
@@ -167,7 +156,7 @@ font-weight: 300;margin: 0;padding: 30px 0 0 0;font-size: 16pt;letter-spacing: 1
 }
 
 .ui.secondary.pointing.menu .item .ui.input input{
-    color: rgba(255,255,255,0.6); 
+    color: rgba(255,255,255,0.6);
 }
 .ui.secondary.pointing.menu .item i{
 margin-right: 3px;
@@ -225,13 +214,13 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#182a73', end
     width: 100%;
 }
 
- 
+
 /*--------------
     Ribbons
 ---------------*/
 
 #home .segment h1 {
-  font-size: 3em;   
+  font-size: 3em;
 }
 
 #home .vertical.segment {

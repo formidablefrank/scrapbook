@@ -1,0 +1,19 @@
+@font-face {
+  font-family: 'hand';
+  src: url('../fonts/callie.otf') format('opentype');
+}
+
+.hand{
+  font-family: 'hand' !important;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: antialiased;
+  -o-font-smoothing: antialiased;
+  font-smoothing: antialiased;
+  padding: 5px 20px !important;
+  margin: 0px !important;
+  font-weight: bolder;
+}
+
+.ui.accordion > i.icon{
+    float: left;
+}
