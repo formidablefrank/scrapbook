@@ -1,4 +1,11 @@
+Reminder: every time you edit this repo, make sure you have pulled the repo first.
+```
+git pull origin master (https)
+git pull -u origin master (SSH) 
+```
+
 #How to run the app
+
 Go to Linux terminal then follow the steps below:
 
 Update software. Install python3.4, pip3, django1.8

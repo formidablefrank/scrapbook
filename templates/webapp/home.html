@@ -1,11 +1,363 @@
-{% extends 'webapp/base.html' %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
 
-{% block content %}
+    <title>A Life's Journey - Welcome</title>
+    {% load staticfiles %}
+    <link rel="stylesheet" type="text/css" href="{% static 'dist/semantic_home.css' %}"/>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/home.css' %}"/>
+</head>
 
-<div class="ui container">
-    <h1 class="ui header">Welcome</h1>
-    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Esse laborum molestiae nisi officia, qui tempore. Architecto eligendi repellat similique tempora veritatis? Ab error est labore minima? Culpa earum ut veniam?</p>
-    <a class="ui primary button" href="{% url 'create' %}">Create Scrapbook</a>
-</div>
+<body id="home">
+    <div class="ui inverted masthead centered segment">
+        <div class="ui page grid">
+            <div class="column">
+                <div class="ui secondary pointing menu">
+                    <!--<a class="logo item">-->
+                        <!--a life's journey-->
+                    <!--</a>-->
+                    <a class="active item">
+                        <i class="info circle icon"></i> About
+                    </a>
+                    <a class="item">
+                        <i class="tasks icon"></i> Features
+                    </a>
+                    <a class="item">
+                        <i class="github icon"></i> Recent Works
+                    </a>
+                    <a class="item">
+                        <i class="globe icon"></i> Clients
+                    </a>
+                    <div class="right menu">
+                        <!--<div class="item">-->
+                            <!--<div class="ui icon input">-->
+                                <!--<input placeholder="Search..." type="text">-->
+                                <!--<i class="home icon"></i>-->
+                            <!--</div>-->
+                        <!--</div>-->
+                        <a class="ui item">
+                            <i class="globe icon"></i> Credits
+                        </a>
+                    </div>
+                </div>
+                <div class="ui hidden transition information">
+                    <h1 class="ui inverted centered header">
+                        A Life's Journey
+                    </h1>
+                    <p class="ui centered lead">
+                        Keeping memories that's better than ever.
+                    </p>
+                    <a href="{% url 'create' %}" class="large basic inverted animated fade ui button">
+                        <div class="visible content">Go to dashboard</div>
+                        <div class="hidden content">Get Started!</div>
+                    </a>
+                    <div class="ui centered image">
+                        <img src="{% static 'img/banner.png' %}"/>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="ui vertical feature segment">
+        <div class="ui centered page grid">
+            <div class="fourteen wide column">
+                <div class="ui three column center aligned stackable divided grid">
+                    <div class="column column-feature">
+                        <div class="ui icon header">
+                            <i class="photo basic icon"></i>
+                            Create a Scrapbook
+                        </div>
+                        <p>Upload photos regularly to see your gradual progress! You will be notified every time you should.</p>
+                    </div>
+                    <div class="column column-feature">
+                        <div class="ui icon header">
+                            <i class="facebook basic icon"></i>
+                            Share Photos
+                        </div>
+                        <p>Share your scrapbook through your social media accounts like Facebook and Twitter.</p>
+                    </div>
+                    <div class="column column-feature">
+                        <div class="ui icon header">
+                            <i class="book basic icon"></i>
+                            Publish Content
+                        </div>
+                        <p>Publish your scrapbook in various document and video formats, like PDF, AVI and MP4.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="ui centered page grid">
+            <p></p>
+            <h3 class="subscribe-header">Subscribe to Mailing List</h3>
+            <p class="ui centered lead large">
+                Receive updates of awesomeness through e-mail!
+            </p>
+            <div class="ui eight wide subscribe column">
+                <div class="field">
+                    <div class="ui fluid action input">
+                        <input placeholder="Email Address" type="text">
+                        <div class="ui blue button">Subscribe</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="ui recent-works vertical segment">
+        <div class="ui very relaxed stackable centered page grid">
+            <div class="row">
+                <div class="eight wide centered column">
+                    <h1 class="center aligned ui inverted header">
+                        Recent Works
+                    </h1>
+                    <div class="ui horizontal divider"><i class="white camera icon"></i></div>
+                    <p class="ui centered lead">Checkout Our Recently Completed Works<br>you will be amazed!.</p>
+                </div>
+            </div>
+            <div class="fourteen wide column">
+                <div class="ui three column aligned stackable divided grid">
+                    <div class="column">
+                        <div class="ui card" data-html="<div class='header'>User Rating</div><div class='content'><div class='ui star rating'><i class='active icon'></i><i class='active icon'></i><i class='active icon'></i><i class='icon'></i><i class='icon'></i></div></div>">
+                            <div class="image">
+                                <img src="{% static 'img/totoro-horizontal.jpg' %}">
+                            </div>
+                            <div class="content">
+                                <div class="header">My Neighbor Totoro</div>
+                                <div class="description">
+                                    Two sisters move to the country with their father in order to be closer to their
+                                    hospitalized mother, and discover the surrounding trees are inhabited by magical
+                                    spirits.
+                                </div>
+                            </div>
+                            <div class="ui two bottom attached buttons">
+                                <div class="ui button">
+                                    <i class="refresh icon"></i>
+                                    Queue
+                                </div>
+                                <div class="ui teal button">
+                                    <i class="unhide icon"></i>
+                                    Watch
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="column">
+                        <div class="ui card" data-html="<div class='header'>User Rating</div><div class='content'><div class='ui star rating'><i class='active icon'></i><i class='active icon'></i><i class='active icon'></i><i class='icon'></i><i class='icon'></i></div></div>">
+                            <div class="image">
+                                <img src="{% static 'img/totoro-horizontal.jpg' %}">
+                            </div>
+                            <div class="content">
+                                <div class="header">My Neighbor Totoro</div>
+                                <div class="description">
+                                    Two sisters move to the country with their father in order to be closer to their
+                                    hospitalized mother, and discover the surrounding trees are inhabited by magical
+                                    spirits.
+                                </div>
+                            </div>
+                            <div class="ui two bottom attached buttons">
+                                <div class="ui button">
+                                    <i class="refresh icon"></i>
+                                    Queue
+                                </div>
+                                <div class="ui teal button">
+                                    <i class="unhide icon"></i>
+                                    Watch
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="column">
+                        <div class="ui card" data-html="<div class='header'>User Rating</div><div class='content'><div class='ui star rating'><i class='active icon'></i><i class='active icon'></i><i class='active icon'></i><i class='icon'></i><i class='icon'></i></div></div>">
+                            <div class="image">
+                                <img src="{% static 'img/totoro-horizontal.jpg' %}">
+                            </div>
+                            <div class="content">
+                                <div class="header">My Neighbor Totoro</div>
+                                <div class="description">
+                                    Two sisters move to the country with their father in order to be closer to their
+                                    hospitalized mother, and discover the surrounding trees are inhabited by magical
+                                    spirits.
+                                </div>
+                            </div>
+                            <div class="ui two bottom attached buttons">
+                                <div class="ui button">
+                                    <i class="refresh icon"></i>
+                                    Queue
+                                </div>
+                                <div class="ui teal button">
+                                    <i class="unhide icon"></i>
+                                    Watch
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="ui vertical segment">
+        <div class="ui stackable center aligned page grid">
+            <div class="row">
+                <div class="eight wide column">
+                    <h1 class="ui header">
+                        Our Clients
+                    </h1>
+                    <div class="ui horizontal divider"><i class="users icon"></i></div>
+                    <p class="ui centered lead">
+                        Coz our webapp is awesome like duh~~
+                    </p>
+                    <br/>
+                </div>
+            </div>
+            <div class="four column logo row">
+                <div class="column">
+                    <div class="ui shape">
+                        <div class="sides">
+                            <div class="active side">
+                                <i class="huge google plus circular inverted icon"></i>
+                            </div>
+                            <div class="side">
+                                <i class="huge twitter circular inverted icon"></i>
+                            </div>
+                            <div class="side">
+                                <i class="huge pinterest circular inverted icon"></i>
+                            </div>
+                            <div class="side">
+                                <i class="huge apple circular inverted icon"></i>
+                            </div>
+                            <div class="side">
+                                <i class="huge github circular inverted icon"></i>
+                            </div>
+                            <div class="side">
+                                <i class="huge facebook circular inverted icon"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="column">
+                    <div class="ui shape">
+                        <div class="sides">
+                            <div class="active side">
+                                <i class="huge twitter circular inverted icon"></i>
+                            </div>
+                            <div class="side">
+                                <i class="huge pinterest circular inverted icon"></i>
+                            </div>
+                            <div class="side">
+                                <i class="huge apple circular inverted icon"></i>
+                            </div>
+                            <div class="side">
+                                <i class="huge github circular inverted icon"></i>
+                            </div>
+                            <div class="side">
+                                <i class="huge facebook circular inverted icon"></i>
+                            </div>
+                            <div class="side">
+                                <i class="huge google plus circular inverted icon"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="column">
+                    <div class="ui shape">
+                        <div class="sides">
+                            <div class="active side">
+                                <i class="huge pinterest circular inverted icon"></i>
+                            </div>
+                            <div class="side">
+                                <i class="huge apple circular inverted icon"></i>
+                            </div>
+                            <div class="side">
+                                <i class="huge github circular inverted icon"></i>
+                            </div>
+                            <div class="side">
+                                <i class="huge facebook circular inverted icon"></i>
+                            </div>
+                            <div class="side">
+                                <i class="huge google plus circular inverted icon"></i>
+                            </div>
+                            <div class="side">
+                                <i class="huge twitter circular inverted icon"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="column">
+                    <div class="ui shape">
+                        <div class="sides">
+                            <div class="active side">
+                                <i class="huge apple circular inverted icon"></i>
+                            </div>
+                            <div class="side">
+                                <i class="huge github circular inverted icon"></i>
+                            </div>
+                            <div class="side">
+                                <i class="huge facebook circular inverted icon"></i>
+                            </div>
+                            <div class="side">
+                                <i class="huge google plus circular inverted icon"></i>
+                            </div>
+                            <div class="side">
+                                <i class="huge twitter circular inverted icon"></i>
+                            </div>
+                            <div class="side">
+                                <i class="huge pinterest circular inverted icon"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="ui inverted footer vertical segment center">
+        <div class="ui stackable center aligned page grid">
+            <div class="four column row">
+                <div class="column">
+                    <h5 class="ui inverted header">CS260</h5>
+                    <div class="ui inverted link list">
+                        <a class="item">Advanced Software Engineering</a>
+                        <a class="item">Department of Computer Science</a>
+                        <a class="item">National Graduate School of Engineering</a>
+                        <a class="item">University of the Philippines Diliman</a>
+                    </div>
+                </div>
+                <div class="column">
+                    <h5 class="ui inverted header">Test-Driven Development</h5>
 
-{% endblock %}
+                    <div class="ui inverted link list">
+                        <a class="item">What TDD?</a>
+                        <a class="item">I prefer YDD.</a>
+                        <a class="item">Yolo-Driven Development</a>
+                        <a class="item">boompeyns</a>
+                        <a class="item">Hackathon Pa More!</a>
+                    </div>
+                </div>
+                <div class="column">
+                    <h5 class="ui inverted header">Community</h5>
+
+                    <div class="ui inverted link list">
+                        <a class="item">BBS</a>
+                        <a class="item">Careers</a>
+                        <a class="item">Privacy Policy</a>
+                    </div>
+                </div>
+                <div class="column">
+                    <h5 class="ui inverted header">Team 43v3r</h5>
+                    <div class="ui inverted link list">
+                        <a class="item">Francis Dimzon</a>
+                        <a class="item">Gushi Montes</a>
+                        <a class="item">Frank Rayo</a>
+                        <a class="item">Herbie Villafranca</a>
+                        <a class="item">JP Yusiong</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src='{% static "js/jquery.min.js" %}' type='text/javascript'></script>
+    <script src="{% static 'js/home.js' %}" type="text/javascript"></script>
+    <script src="{% static 'dist/semantic_home.js' %}" type="text/javascript"></script>
+</body>
