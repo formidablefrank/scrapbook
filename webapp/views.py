@@ -14,7 +14,7 @@ def login(request):
 
 def dashboard(request):
     context = {'pagename': 'Home'}
-    return render(request, 'dashboard/dashboard.html', context)
+    return render(request, 'dashboard/home.html', context)
 
 
 def create(request):
