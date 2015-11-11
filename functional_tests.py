@@ -12,41 +12,41 @@ class Welcome(unittest.TestCase):
 		self.browser.quit()
 
 	def test_can_start_to_create_scrapbook(self):
-		#Opens Firefox and inputs the URL localhost:8000
+		# Opens Firefox and inputs the URL localhost:8000
 		self.browser.get('localhost:8000/')
 
-		#Notices a the browser title labeled Welcome
+		# Notices a the browser title labeled Welcome
 		self.assertIn("A Life's Journey - Welcome", self.browser.title)
 
-		#She reads the header text Welcome
+		# She reads the header text Welcome
 		header_h1_text = self.browser.find_element_by_tag_name('h1').text
 		self.assertIn("A Life's Journey", header_h1_text)
 
-		#reading further after the header the text
+		# reading further after the header the text
 		p_text=self.browser.find_element_by_tag_name('p').text
 		self.assertIn("Keeping memories that's better than ever.", p_text)
 
-		#and notices the text Create Scrapbook
+		# and notices the text Create Scrapbook
 
 		create_link = self.browser.find_element_by_tag_name('a')
 		self.assertIn('Create Scrapbook',create_link.text)
-		#better to use find_elements later when other functionalities are added later on
+		# better to use find_elements later when other functionalities are added later on
 
 		import time
 		time.sleep(3)
 
-		#when she left-clicks the Create Scrapbook text
+		# when she left-clicks the Create Scrapbook text
 		create_link.click()
 		# or when she presses TAB and ENTER
-		#create_link.send_keys(Keys.ENTER)
+		# create_link.send_keys(Keys.ENTER)
 
 
-		#another page opens, this time it is the Create Scrapbook page
+		# another page opens, this time it is the Create Scrapbook page
 
-		#She notices the browser title labeled Create Scrapbook
+		# She notices the browser title labeled Create Scrapbook
 		self.assertIn('Create Scrapbook', self.browser.title)
 
-		#She reads the header text Create Scrapbook
+		# She reads the header text Create Scrapbook
 		create_header_h1 = self.browser.find_element_by_tag_name('h1')
 		self.assertIn('Create Scrapbook', create_header_h1.text)
 
@@ -57,8 +57,27 @@ class Welcome(unittest.TestCase):
 		# She types "Baby Bae" into a text box (Baby Bae is her first-born child
 		name_inputbox.send_keys('Baby Bae First Twelve Months')
 
-		# She is invited to enter a duration of the scrapbook
-		#...
+		# She is asked to enter the start date of the scrapbook by selecting the
+		# day, month, and year from the combo boxes
+
+		# She decides on how frequent she wants to keep track of her life's
+		# journey--daily, weekly, monthly or yearly.
+
+		# She enters the number of times she needs to upload pictures.
+		# For example, she chose "Daily" and entered 3 as the Mode, then she
+		# has to upload three photos everyday.
+
+		# She needs to provide her email address so that an email can be sent
+		# to remind her to upload pictures based on her preferred
+		# frequency and mode
+
+		# Finally, after providing all the necessary details, she has decide
+		# whether to discontinue or proceed with the creation of the scrapbook
+
+		# When she clicks on the Cancel button, the creation of the scrapbook
+		# will be discontinued and she will be shown the main page.
+
+		# But, if she clicks on the Submit button, the scrapbook will be created
 
 		time.sleep(3)
 
