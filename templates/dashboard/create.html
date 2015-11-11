@@ -2,25 +2,23 @@
 
 {% block dash_content %}
 
-<div class="ui container">
-    <h1 class="ui header">Create Scrapbook</h1>
-    <form class="ui form">
-        <div class="field">
-            <label>Name:</label>
-            <input type="text" name="name">
+<h1 class="ui header">Create Scrapbook</h1>
+<form class="ui form">
+    <div class="field">
+        <label>Name:</label>
+        <input type="text" name="name">
+    </div>
+    <div class="field">
+        <label>Duration:</label>
+        <input type="text" name="duration">
+    </div>
+    <div class="field">
+        <div class="ui checkbox">
+            <input class="" tabindex="0" type="checkbox">
+            <label>I agree to the Terms and Conditions</label>
         </div>
-        <div class="field">
-            <label>Duration:</label>
-            <input type="text" name="duration">
-        </div>
-        <div class="field">
-            <div class="ui checkbox">
-                <input class="" tabindex="0" type="checkbox">
-                <label>I agree to the Terms and Conditions</label>
-            </div>
-        </div>
-        <button class="ui button" type="submit">Submit</button>
-    </form>
-</div>
+    </div>
+    <button class="ui button" type="submit">Submit</button>
+</form>
 
 {% endblock %}

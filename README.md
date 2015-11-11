@@ -1,7 +1,7 @@
 Reminder: every time you edit this repo, make sure you have pulled the repo first.
 ```
 git pull origin master (https)
-git pull -u origin master (SSH) 
+git pull -u origin master (SSH)
 ```
 
 #How to run the app
@@ -22,11 +22,13 @@ sudo -H pip install --upgrade pip
 sudo -H pip install --upgrade cffi
 sudo -H pip install --upgrade setuptools
 sudo -H pip install --upgrade Django
+sudo -H pip install --upgrade selenium
 sudo -H pip3 install --upgrade pip
 sudo -H pip3 install --upgrade cffi
 sudo -H pip3 install --upgrade setuptools
 sudo -H pip3 install --upgrade pyopenssl ndg-httpsclient pyasn1
 sudo -H pip3 install --upgrade Django
+sudo -H pip3 install --upgrade selenium
 ```
 
 

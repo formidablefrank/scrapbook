@@ -6,6 +6,6 @@
   font-size: 2em !important;
 }
 
-.pusher{
-  padding-top: 50px;
+.ui.grid{
+    margin: 0px !important;
 }

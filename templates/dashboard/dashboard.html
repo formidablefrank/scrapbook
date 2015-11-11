@@ -6,40 +6,13 @@
 {% endblock %}
 
 {% block content %}
-<div class="ui left vertical inverted accordion large menu sidebar">
-    <a class="item {% if create %} active blue {% endif %}" href="{% url 'create' %}">
-        <i class="add icon"></i>
-        Create A Scrapbook
+<div class="ui top attached inverted menu">
+    <a class="item" id="navBtn">
+        <i class="sidebar large fitted inverted icon"></i>
     </a>
-    <a class="item {% if current %} active blue {% endif %}">
-        <i class="heart icon"></i>
-        #MayForever
-    </a>
-    <div class="item">
-        <a class="title">
-            <i class="dropdown icon"></i>
-            View Archived Scrapbooks
-        </a>
-        <div class="content">
-            <div class="ui middle aligned selection animated inverted list">
-                <a class="item" href="#">
-                    Selfie Pa More!
-                </a>
-                <a class="item" href="#">
-                    30-Day Diet Challenge
-                </a>
-                <a class="item" href="#">
-                    My Cactus <3
-                </a>
-            </div>
-        </div>
-    </div>
-</div>
-<div class="ui top fixed inverted small menu">
     <a href="{% url 'dashboard' %}" class="item hand">
         A Life's Journey
     </a>
-    <a href="#" class="item" id="navBtn"><i class="sidebar large inverted fitted icon"></i></a>
     <div class="right menu">
         <a href="#" class="ui item">
             <img src="{% static 'img/logo.jpg' %}" class="ui avatar image" alt="" />
@@ -47,9 +20,50 @@
         </a>
     </div>
 </div>
-<div class="pusher">
-    {% block dash_content %}
-    {% endblock %}
+<div class="ui bottom attached segment pushable">
+    <div style="" class="ui left vertical inverted accordion menu sidebar visible">
+        <a class="item {% if create %} active blue {% endif %}" href="{% url 'create' %}">
+            <i class="add icon"></i>
+            Create A Scrapbook
+        </a>
+        <a class="item {% if current %} active blue {% endif %}">
+            <i class="heart icon"></i>
+            #MayForever
+        </a>
+        <div class="item">
+            <a class="title">
+                <i class="dropdown icon"></i>
+                View Archived Scrapbooks
+            </a>
+            <div class="content">
+                <div class="ui middle aligned selection animated inverted list">
+                    <a class="item" href="#">
+                        Selfie Pa More!
+                    </a>
+                    <a class="item" href="#">
+                        30-Day Diet Challenge
+                    </a>
+                    <a class="item" href="#">
+                        My Cactus <3
+                    </a>
+                </div>
+            </div>
+        </div>
+        <a class="item" href="/">
+            <i class="sign out icon"></i>
+            Logout
+        </a>
+    </div>
+    <div class="pusher">
+        <div class="ui fluid container">
+            <div class="ui grid">
+                <div class="thirteen wide column" id="content">
+                    {% block dash_content %}
+                    {% endblock %}
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
 {% endblock %}
 
