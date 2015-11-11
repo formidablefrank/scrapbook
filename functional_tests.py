@@ -60,12 +60,12 @@ class Welcome(unittest.TestCase):
 		# She is asked to enter the start date of the scrapbook by selecting the
 		# day, month, and year from the combo boxes
 
-		# She decides on how frequent she wants to keep track of her life's
-		# journey--daily, weekly, monthly or yearly.
+		# She decides on how often she wants to keep track of her life's
+		# journey--daily, weekly or monthly.
 
-		# She enters the number of times she needs to upload pictures.
-		# For example, she chose "Daily" and entered 3 as the Mode, then she
-		# has to upload three photos everyday.
+		# She enters the number of times she wants to upload pictures.
+		# For example, she chose "daily", entered 3 as the frequency, and chose
+		# "Hours", then she has to upload photos every 3 hours.
 
 		# She needs to provide her email address so that an email can be sent
 		# to remind her to upload pictures based on her preferred
