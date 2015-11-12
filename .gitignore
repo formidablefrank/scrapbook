@@ -63,3 +63,6 @@ target/
 node_modules/
 static/tasks
 static/gulpfile.js
+
+#DSstore from mac
+.DS_Store
