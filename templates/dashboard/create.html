@@ -5,16 +5,20 @@
 <h1 class="ui header">Create Scrapbook</h1>
 <form class="ui form">
     <div class="field">
-        <label>Name:</label>
+        <label>Name of Scrapbook</label>
         <input type="text" name="name">
     </div>
     <div class="field">
-        <label>Duration:</label>
-        <input type="text" name="duration">
+        <label>Description of Scrapbook</label>
+        <textarea rows="2" name="description"></textarea>
     </div>
     <div class="field">
-        <label>Mode:</label>
-        <select class="ui dropdown">
+        <label>Start Date of Scrapbook</label>
+        <input type="date" placeholder="dd/mm/yyyy" name="start date">
+    </div>
+    <div class="field">
+        <label>Frequency</label>
+        <select class="ui dropdown" name='frequency'>
             <option value="1">Daily</option>
             <option value="2">Weekly</option>
             <option value="3">Monthly</option>
@@ -22,32 +26,27 @@
     </div>
     <div class="fields">
         <div class="field">
-            <label>Frequency: Every</label>
-            <input placeholder="e.g. 7 for every 7 days or 7 hours" type="text">
-        </div>
-        <div class="field">
-            <select class="ui dropdown">
+            <label>Mode: Every</label>
+            <input placeholder="e.g. 7 for every 7 days or 7 hours" type="text" name='mode'>
+            <select class="ui dropdown" id="mode01">
                 <option value="1">Hours</option>
                 <option value="2">Days</option>
             </select>
         </div>
     </div>
     <div class="field">
-        <label>Description:</label>
-        <textarea rows="2" name="description"></textarea>
-    </div>
-    <div class="field">
         <label>Email Address:</label>
-        <input type="text" name="email">
+        <input type="email" name="email">
     </div>
-    
+
     <div class="field">
         <div class="ui checkbox">
-            <input class="" tabindex="0" type="checkbox">
+            <input class="" tabindex="0" type="checkbox" name='agree'>
             <label>I agree to the Terms and Conditions</label>
         </div>
     </div>
-    <button class="ui button" type="submit">Submit</button>
+    <button class="ui button" name='submit' type="submit">Submit</button>
+    <button class="ui button" name='cancel' type="cancel">Cancel</button>
 </form>
 
 {% endblock %}
