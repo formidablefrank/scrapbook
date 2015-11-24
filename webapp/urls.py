@@ -6,4 +6,5 @@ urlpatterns = [
     url(r'^create/$', views.create, name='create'),
     url(r'^login/$', views.login, name='login'),
     url(r'^dashboard/$', views.dashboard, name='dashboard'),
+    url(r'^view/(?P<book_id>[0-9]+)$', views.view, name='view'),
 ]

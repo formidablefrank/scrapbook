@@ -26,26 +26,22 @@
             <i class="add icon"></i>
             Create A Scrapbook
         </a>
-        <a class="item {% if current %} active blue {% endif %}">
+        <a class="item {% if current %} active blue {% endif %}" href="{% url 'view' activebook.id %}">
             <i class="heart icon"></i>
-            #MayForever
+            {{ activebook.name }}
         </a>
-        <div class="item">
+        <div class="item {% if view %} active blue {% endif %}">
             <a class="title">
                 <i class="dropdown icon"></i>
                 View Archived Scrapbooks
             </a>
             <div class="content">
                 <div class="ui middle aligned selection animated inverted list">
-                    <a class="item" href="#">
-                        Selfie Pa More!
+                    {% for book in books %}
+                    <a class="item" href="{% url 'view' book.id %}">
+                        {{ book.name }}
                     </a>
-                    <a class="item" href="#">
-                        30-Day Diet Challenge
-                    </a>
-                    <a class="item" href="#">
-                        My Cactus <3
-                    </a>
+                    {% endfor %}
                 </div>
             </div>
         </div>

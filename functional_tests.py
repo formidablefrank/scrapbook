@@ -69,7 +69,7 @@ class Welcome(unittest.TestCase):
 
 
 		# She is asked to enter the start date of the scrapbook
-		start_date = self.browser.find_element_by_name('start date')
+		start_date = self.browser.find_element_by_name('start_date')
 
 		# She decides to start on 11/18/2015, Baby Bae's date of birth
 		start_date.send_keys('11/18/2015')
@@ -80,11 +80,11 @@ class Welcome(unittest.TestCase):
 		select_mode.select_by_visible_text('Monthly')
 
 		# She has to enter the number of times she wants to upload pictures.
-		mode_inputbox = self.browser.find_element_by_name('mode')
+		mode_inputbox = self.browser.find_element_by_name('every')
 		# For example, she chose "daily", for the mode, she entered 3 and chose
 		# "Hours", then she has to upload photos every 3 hours each day.
 		mode_inputbox.send_keys('7')
-		select_mode = Select(self.browser.find_element_by_id('mode01'))
+		select_mode = Select(self.browser.find_element_by_name('mode'))
 		select_mode.select_by_visible_text('Days')
 
 		# She needs to provide her email address so that an email can be sent
