@@ -1,4 +1,5 @@
 from django.shortcuts import render
+from .models import Scrapbook
 
 
 # Create your views here.
@@ -18,5 +19,11 @@ def dashboard(request):
 
 
 def create(request):
-    context = {'pagename': 'Create Scrapbook', 'create': True}
+    success = False
+    if request.POST:
+        new_scrap = Scrapbook(request.POST['name'], request.POST['description'], request.POST['start_date'], int(request.POST['frequency']), int(request.POST['every']), int(request.POST['mode']), request.POST['email'])
+        new_scrap.save()
+        success = True
+
+    context = {'pagename': 'Create Scrapbook', 'create': True, 'success': success}
     return render(request, 'dashboard/create.html', context)

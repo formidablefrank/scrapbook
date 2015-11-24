@@ -3,7 +3,21 @@
 {% block dash_content %}
 
 <h1 class="ui header">Create Scrapbook</h1>
-<form class="ui form">
+
+{% if success %}
+<div class="ui icon floating info message">
+  <i class="check icon"></i> &nbsp;
+  <div class="content">
+    <div class="header">
+      Success
+    </div>
+    <p>Yay</p>
+  </div>
+</div>
+{% endif %}
+
+<form class="ui form" action="{% url 'create' %}" method="post">
+    {% csrf_token %}
     <div class="field">
         <label>Name of Scrapbook</label>
         <input type="text" name="name">
@@ -14,7 +28,7 @@
     </div>
     <div class="field">
         <label>Start Date of Scrapbook</label>
-        <input type="date" placeholder="dd/mm/yyyy" name="start date">
+        <input type="date" placeholder="dd/mm/yyyy" name="start_date">
     </div>
     <div class="field">
         <label>Frequency</label>
@@ -27,8 +41,8 @@
     <div class="fields">
         <div class="field">
             <label>Mode: Every</label>
-            <input placeholder="e.g. 7 for every 7 days or 7 hours" type="text" name='mode'>
-            <select class="ui dropdown" id="mode01">
+            <input placeholder="e.g. 7 for every 7 days or 7 hours" type="text" name="every">
+            <select class="ui dropdown" id="mode01" name="mode">
                 <option value="1">Hours</option>
                 <option value="2">Days</option>
             </select>
@@ -46,7 +60,6 @@
         </div>
     </div>
     <button class="ui button" name='submit' type="submit">Submit</button>
-    <button class="ui button" name='cancel' type="cancel">Cancel</button>
 </form>
 
 {% endblock %}

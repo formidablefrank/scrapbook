@@ -20,4 +20,10 @@ $(document).ready(function(){
             .sidebar('setting', 'transition', 'push')
             .sidebar('toggle');
     });
+    $('.message .close')
+        .on('click', function() {
+        $(this)
+        .closest('.message')
+        .transition('fade');
+    });
 });
