@@ -2,82 +2,72 @@
 
 {% block dash_content %}
 
-<h1 class="ui header">{{ book.name }}</h1>
-<p>{{ book.description }}</p>
 
-<h2>View Photos</h2>
-<div class="ui link cards">
-  <div class="card">
-    <div class="image">
-      <img src="/images/avatar2/large/matthew.png">
+<div class="ui stackable grid">
+    <div class="twelve wide column">
+        <h1 class="ui header">{{ book.name }}</h1>
+        <p>{{ book.description }}</p>
+        <h2>View Photos</h2>
+        {% for picture in book.picture_set.all %}
+        <div class="ui link cards">
+            <div class="card">
+                <div class="image">
+                    <img src="/{{picture.pic.url}}">
+                </div>
+                <div class="content">
+                    <div class="header">
+                        {{ picture.name }}
+                    </div>
+                    <div class="meta">
+                        <a>{{ picture.date }}</a>
+                    </div>
+                    <div class="description">
+                        {{ picture.caption }}
+                    </div>
+                </div>
+                <div class="extra content">
+                    <div class="ui two buttons">
+                        <button class="ui green button viewPicture">View Photo</button>
+                        <button class="ui red button">Delete Photo</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="ui modal">
+            <div class="header">Header</div>
+            <div class="image content">
+                <img src="/{{picture.pic.url}}" class="image">
+                <div class="description">
+                    <p></p>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
     </div>
-    <div class="content">
-      <div class="header">Matt Giampietro</div>
-      <div class="meta">
-        <a>Friends</a>
-      </div>
-      <div class="description">
-        Matthew is an interior designer living in New York.
-      </div>
+    <div class="four wide column">
+        <div class="ui segment">
+        <h2>Upload A Photo</h2>
+        <form class="ui form" action="{% url 'upload' book.id %}" method="POST" enctype="multipart/form-data">
+            {% csrf_token %}
+            <div class="field">
+                <label>Name</label>
+                <input type="text" name="name">
+            </div>
+            <div class="field">
+                <label>Caption</label>
+                <input type="text" name="caption">
+            </div>
+            <div class="field">
+                <label>Choose file</label>
+                <input type="file" name="image">
+            </div>
+            <button class="ui basic blue button" name='submit' type="submit">Submit</button>
+        </form>
+        <h2>Archive Scrapbook</h2>
+        <a class="ui basic button red" href="">Archive</a>
+        </div>
     </div>
-    <div class="extra content">
-      <span class="right floated">
-        Joined in 2013
-      </span>
-      <span>
-        <i class="user icon"></i>
-        75 Friends
-      </span>
-    </div>
-  </div>
-  <div class="card">
-    <div class="image">
-      <img src="/images/avatar2/large/molly.png">
-    </div>
-    <div class="content">
-      <div class="header">Molly</div>
-      <div class="meta">
-        <span class="date">Coworker</span>
-      </div>
-      <div class="description">
-        Molly is a personal assistant living in Paris.
-      </div>
-    </div>
-    <div class="extra content">
-      <span class="right floated">
-        Joined in 2011
-      </span>
-      <span>
-        <i class="user icon"></i>
-        35 Friends
-      </span>
-    </div>
-  </div>
-  <div class="card">
-    <div class="image">
-      <img src="/images/avatar2/large/elyse.png">
-    </div>
-    <div class="content">
-      <div class="header">Elyse</div>
-      <div class="meta">
-        <a>Coworker</a>
-      </div>
-      <div class="description">
-        Elyse is a copywriter working in New York.
-      </div>
-    </div>
-    <div class="extra content">
-      <span class="right floated">
-        Joined in 2014
-      </span>
-      <span>
-        <i class="user icon"></i>
-        151 Friends
-      </span>
-    </div>
-  </div>
 </div>
 
-<h2>Upload A Photo</h2>
 
 {% endblock %}

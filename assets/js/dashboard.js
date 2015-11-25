@@ -26,4 +26,6 @@ $(document).ready(function(){
         .closest('.message')
         .transition('fade');
     });
+    $('select.dropdown').dropdown();
+    $()
 });
