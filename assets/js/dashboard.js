@@ -1,10 +1,9 @@
 $(document).ready(function(){
     $('.ui.sidebar')
-      .sidebar({
+        .sidebar({
         context: $('.bottom.segment')
-      })
-      .sidebar('attach events', '#navBtn')
-    ;
+        })
+        .sidebar('attach events', '#navBtn');
     $('.ui.accordion').accordion();
     $('#navBtn').on('click', function(e){
         e.preventDefault();
@@ -30,9 +29,12 @@ $(document).ready(function(){
     $('select.dropdown').dropdown();
     $('.viewPicture').on('click', function(){
         $(this).parent().find('.modal')
-            .modal({blurring: true})
+            .modal({
+                blurring: true,
+                onHidden: function() {location.reload();}
+            })
             .modal('setting', 'transition', 'horizontal flip')
             .modal('setting', 'closable', false)
-            .modal('toggle')
+            .modal('show')
     });
 });

@@ -26,14 +26,37 @@
             <i class="add icon"></i>
             Create A Scrapbook
         </a>
-        <a class="item {% if current %} active blue {% endif %}" href="{% url 'view' activebook.id %}">
-            <i class="heart icon"></i>
-            {{ activebook.name }}
-        </a>
+        <div class="item {% if current %} active blue {% endif %}">
+            <a class="title">
+                <i class="dropdown icon"></i>
+                Current: {{ activebook.name }}
+            </a>
+            <div class="content">
+                <div class="ui middle aligned selection animated inverted list">
+                <a class="item" href="{% url 'view' activebook.id %}">
+                    <i class="eye icon"></i>
+                    View Scrapbook
+                </a>
+                <a class="item" href="{% url 'view' activebook.id %}#upload">
+                    <i class="upload icon"></i>
+                    Upload Photo
+                </a>
+                <a class="item" href="#">
+                    <i class="book icon"></i>
+                    Publish
+                </a>
+                <a class="item" href="#">
+                    <i class="close icon"></i>
+                    Close Scrapbook
+                </a>
+                </div>
+            </div>
+        </div>
+
         <div class="item {% if view %} active blue {% endif %}">
             <a class="title">
                 <i class="dropdown icon"></i>
-                View Archived Scrapbooks
+                View Closed Scrapbooks
             </a>
             <div class="content">
                 <div class="ui middle aligned selection animated inverted list">

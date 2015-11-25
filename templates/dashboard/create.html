@@ -6,13 +6,13 @@
 
 {% if success %}
 <div class="ui icon floating info message">
-  <i class="check icon"></i> &nbsp;
-  <div class="content">
-    <div class="header">
-      Success
+    <i class="check icon"></i> &nbsp;
+    <div class="content">
+        <div class="header">
+            Success
+        </div>
+        <p>Yay</p>
     </div>
-    <p>Yay</p>
-  </div>
 </div>
 {% endif %}
 
@@ -59,7 +59,8 @@
             <label>I agree to the Terms and Conditions</label>
         </div>
     </div>
-    <button class="ui blue button" name='submit' type="submit">Submit</button>
+    <a class="ui orange button" href="{% url 'dashboard' %}">Cancel</a>
+    <button class="ui green button" name='submit' type="submit" href="{% url 'create' %}">Submit</button>
 </form>
 
 {% endblock %}

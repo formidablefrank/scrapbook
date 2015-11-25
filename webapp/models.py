@@ -12,6 +12,17 @@ class Scrapbook(models.Model):
     every = models.IntegerField(default = 0)
     mode = models.IntegerField(default = 0)
     email = models.EmailField(max_length = 50, blank = True)
+    active = models.IntegerField(default = 1)
+
+    def archive(self):
+        self.active = 0
+        self.save()
+
+    def activate(self):
+        Scrapbook.objects.get(active = 1).archive()
+        self.active = 1
+        self.save()
+
 
 
 class ImageUploadForm(forms.Form):

@@ -162,3 +162,21 @@ gulp build
 ```
 
 You can now modify 'static/src/theme.config'
+
+
+
+#Pillow Package
+First, reinstall project dependencies (given above)
+If you encounter
+```
+ValueError: --enable-jpeg requested but jpeg not found, aborting.
+```
+during installation of Pillow, do the following:
+
+
+Install the following package,make a symlink then reinstall project dependencies again.
+```
+sudo apt-get install libjpeg62-turbo-dev
+sudo ln -s /usr/lib/x86_64-linux-gnu/libjpeg.so /usr/lib
+pip3 install -r requirements.txt
+```
