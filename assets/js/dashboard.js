@@ -18,6 +18,7 @@ $(document).ready(function(){
         }
         $('.ui.sidebar')
             .sidebar('setting', 'transition', 'push')
+            .sidebar('setting', 'dimPage', false)
             .sidebar('toggle');
     });
     $('.message .close')
@@ -27,5 +28,11 @@ $(document).ready(function(){
         .transition('fade');
     });
     $('select.dropdown').dropdown();
-    $()
+    $('.viewPicture').on('click', function(){
+        $(this).parent().find('.modal')
+            .modal({blurring: true})
+            .modal('setting', 'transition', 'horizontal flip')
+            .modal('setting', 'closable', false)
+            .modal('toggle')
+    });
 });

@@ -5,44 +5,53 @@
 
 <div class="ui stackable grid">
     <div class="twelve wide column">
-        <h1 class="ui header">{{ book.name }}</h1>
-        <p>{{ book.description }}</p>
-        <h2>View Photos</h2>
-        {% for picture in book.picture_set.all %}
-        <div class="ui link cards">
-            <div class="card">
-                <div class="image">
-                    <img src="/{{picture.pic.url}}">
+        <div class="ui segment">
+            <h2 class="ui header">{{ book.name }}</h2>
+            <p>{{ book.description }}</p>
+            <div class="ui divider"></div>
+
+            <div class="ui three stackable link cards">
+                {% for picture in book.picture_set.all %}
+                <div class="ui fluid blue card">
+                    <div class="image">
+                        <img src="/{{picture.pic.url}}" class="ui fluid image">
+                    </div>
+                    <div class="content">
+                        <div class="header">
+                            {{ picture.name }}
+                        </div>
+                        <div class="meta">
+                            <a>{{ picture.date }}</a>
+                        </div>
+                        <div class="description">
+                            {{ picture.caption }}
+                        </div>
+                    </div>
+                    <div class="extra content">
+                        <div class="ui two tiny buttons">
+                            <button class="ui green inverted button viewPicture">View</button>
+                            <button class="ui red inverted button">Delete</button>
+                            <div class="ui modal">
+                                <div class="actions">
+                                    <div class="ui black deny button">
+                                        <i class="close icon"></i>
+                                        Close
+                                    </div>
+                                </div>
+                                <div class="header">Header</div>
+                                <div class="image content">
+                                    <img src="/{{picture.pic.url}}" class="ui fluid image">
+                                    <div class="description">
+                                        <p>{{ picture.caption }}</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                <div class="content">
-                    <div class="header">
-                        {{ picture.name }}
-                    </div>
-                    <div class="meta">
-                        <a>{{ picture.date }}</a>
-                    </div>
-                    <div class="description">
-                        {{ picture.caption }}
-                    </div>
-                </div>
-                <div class="extra content">
-                    <div class="ui two buttons">
-                        <button class="ui green button viewPicture">View Photo</button>
-                        <button class="ui red button">Delete Photo</button>
-                    </div>
-                </div>
+                {% endfor %}
             </div>
         </div>
-        <div class="ui modal">
-            <div class="header">Header</div>
-            <div class="image content">
-                <img src="/{{picture.pic.url}}" class="image">
-                <div class="description">
-                    <p></p>
-                </div>
-            </div>
-        </div>
-        {% endfor %}
     </div>
     <div class="four wide column">
         <div class="ui segment">
@@ -61,10 +70,10 @@
                 <label>Choose file</label>
                 <input type="file" name="image">
             </div>
-            <button class="ui basic blue button" name='submit' type="submit">Submit</button>
+            <button class="ui blue inverted button" name='submit' type="submit">Submit</button>
         </form>
         <h2>Archive Scrapbook</h2>
-        <a class="ui basic button red" href="">Archive</a>
+        <a class="ui orange inverted button" href="">Archive</a>
         </div>
     </div>
 </div>
