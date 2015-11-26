@@ -21,11 +21,12 @@
     </div>
 </div>
 <div class="ui bottom attached segment pushable">
-    <div style="" class="ui left vertical inverted accordion menu sidebar visible">
+    <div style="" class="ui fixed left vertical inverted accordion menu sidebar visible">
         <a class="item {% if create %} active blue {% endif %}" href="{% url 'create' %}">
             <i class="add icon"></i>
             Create A Scrapbook
         </a>
+        {% if activebook %}
         <div class="item {% if current %} active blue {% endif %}">
             <a class="title">
                 <i class="dropdown icon"></i>
@@ -45,13 +46,14 @@
                     <i class="book icon"></i>
                     Publish
                 </a>
-                <a class="item" href="#">
+                <a class="item" href="{% url 'archive' activebook.id %}">
                     <i class="close icon"></i>
-                    Close Scrapbook
+                    Archive Scrapbook
                 </a>
                 </div>
             </div>
         </div>
+        {% endif %}
 
         <div class="item {% if view %} active blue {% endif %}">
             <a class="title">

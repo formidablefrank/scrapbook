@@ -15,7 +15,7 @@ def login(request):
 
 def dashboard(request):
     scrapbooks = Scrapbook.objects.filter(active = 0)
-    activebook = Scrapbook.objects.get(active = 1)
+    activebook = Scrapbook.getActive()
     context = {'pagename': 'Home', 'books': scrapbooks, 'activebook': activebook}
     return render(request, 'dashboard/home.html', context)
 
@@ -23,7 +23,7 @@ def dashboard(request):
 def create(request):
     success = False
     scrapbooks = Scrapbook.objects.filter(active = 0)
-    activebook = Scrapbook.objects.get(active = 1)
+    activebook = Scrapbook.getActive()
     if request.POST:
         activebook.archive()
         myDate = request.POST['start_date'].split('/')
@@ -46,7 +46,7 @@ def create(request):
 
 def view(request, book_id):
     scrapbooks = Scrapbook.objects.filter(active = 0)
-    activebook = Scrapbook.objects.get(active = 1)
+    activebook = Scrapbook.getActive()
     book = Scrapbook.objects.get(id = book_id)
     current = False
     view = False
@@ -86,7 +86,13 @@ def activate(request, book_id):
     return view(request, book_id)
 
 
-def delete(request, book_id):
+def deleteBook(request, book_id):
     book = Scrapbook.objects.get(id = book_id)
     book.delete()
     return redirect('dashboard')
+
+
+def deletePhoto(request, book_id, photo_id):
+    picture = Scrapbook.objects.get(id = book_id).picture_set.get(id = photo_id)
+    picture.delete()
+    return view(request, book_id)

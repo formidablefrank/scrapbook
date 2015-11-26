@@ -19,9 +19,18 @@ class Scrapbook(models.Model):
         self.save()
 
     def activate(self):
-        Scrapbook.objects.get(active = 1).archive()
+        try:
+            Scrapbook.objects.get(active = 1).archive()
+        except Exception:
+            pass
         self.active = 1
         self.save()
+
+    def getActive():
+        try:
+            return Scrapbook.objects.get(active = 1)
+        except Exception:
+            return 0
 
 
 

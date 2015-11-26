@@ -4,6 +4,7 @@ $(document).ready(function(){
         context: $('.bottom.segment')
         })
         .sidebar('attach events', '#navBtn');
+    $('.ui.sticky').sticky({context: '.pusher'});
     $('.ui.accordion').accordion();
     $('#navBtn').on('click', function(e){
         e.preventDefault();

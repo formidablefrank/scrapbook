@@ -20,7 +20,7 @@
     </div>
     {% else %}
     <div class="ui divider"></div>
-    <div class="ui three stackable link cards">
+    <div class="ui four stackable link cards">
         {% for picture in book.picture_set.all %}
         <div class="ui fluid black card">
             <div class="image">
@@ -39,8 +39,8 @@
             </div>
             <div class="extra content">
                 <div class="ui two tiny buttons">
-                    <button class="ui button viewPicture">View</button>
-                    <button class="ui button">Delete</button>
+                    <a class="ui button viewPicture">View</a>
+                    <a class="ui button" href="{% url 'deletePhoto' book.id picture.id%}">Delete</a>
                     <div class="ui large modal">
                         <div class="image content">
                             <div class="ui fluid image">
@@ -83,15 +83,14 @@
     </div>
     <button class="ui blue button" name='submit' type="submit">Submit</button>
 </form>
-{% if not current %}
-    <h2>Options</h2>
-    {% if book.active %}
-    <a class="ui orange button" href="{% url 'archive' book.id %}">Archive</a>
-    {% else %}
-    <a class="ui green button" href="{% url 'activate' book.id %}">Activate</a>
-    {% endif %}
-    <a class="ui red button" href="{% url 'delete' book.id %}">Delete</a>
+<h2>Options</h2>
+{% if book.active %}
+<a class="ui orange button" href="{% url 'archive' book.id %}">Archive</a>
+{% else %}
+<a class="ui green button" href="{% url 'activate' book.id %}">Activate</a>
 {% endif %}
+<a class="ui red button" href="{% url 'deleteBook' book.id %}">Delete</a>
+
 </div>
 
 
