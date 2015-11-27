@@ -26,6 +26,7 @@ class Scrapbook(models.Model):
         self.active = 1
         self.save()
 
+    @staticmethod
     def getActive():
         try:
             return Scrapbook.objects.get(active = 1)
