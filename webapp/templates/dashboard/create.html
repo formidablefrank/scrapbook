@@ -1,0 +1,66 @@
+{% extends 'dashboard/dashboard.html' %}
+
+{% block dash_content %}
+
+<h1 class="ui header">Create Scrapbook</h1>
+
+{% if success %}
+<div class="ui icon floating info message">
+    <i class="check icon"></i> &nbsp;
+    <div class="content">
+        <div class="header">
+            Success
+        </div>
+        <p>Yay</p>
+    </div>
+</div>
+{% endif %}
+
+<form class="ui form" action="{% url 'create' %}" method="post">
+    {% csrf_token %}
+    <div class="field">
+        <label>Name of Scrapbook</label>
+        <input type="text" name="name">
+    </div>
+    <div class="field">
+        <label>Description of Scrapbook</label>
+        <textarea rows="2" name="description"></textarea>
+    </div>
+    <div class="field">
+        <label>Start Date of Scrapbook</label>
+        <input type="date" placeholder="mm/dd/yyyy" name="start_date">
+    </div>
+    <div class="field">
+        <label>Frequency</label>
+        <select name='frequency'>
+            <option value="1">Daily</option>
+            <option value="2">Weekly</option>
+            <option value="3">Monthly</option>
+        </select>
+    </div>
+    <div class="fields">
+        <div class="field">
+            <label>Mode: Every</label>
+            <input placeholder="7" type="text" name="every">
+            <select id="mode01" name="mode">
+                <option value="1">Hours</option>
+                <option value="2">Days</option>
+            </select>
+        </div>
+    </div>
+    <div class="field">
+        <label>Email Address:</label>
+        <input type="email" name="email">
+    </div>
+
+    <div class="field">
+        <div class="ui checkbox">
+            <input class="" tabindex="0" type="checkbox" name='agree'>
+            <label>I agree to the Terms and Conditions</label>
+        </div>
+    </div>
+    <a class="ui orange button" href="{% url 'dashboard' %}">Cancel</a>
+    <button class="ui green button" name='submit' type="submit" href="{% url 'create' %}">Submit</button>
+</form>
+
+{% endblock %}
