@@ -12,7 +12,8 @@ class Welcome(unittest.TestCase):
 		self.browser.implicitly_wait(5)
 
 	def tearDown(self):
-		self.browser.quit()
+		time.sleep(3)
+		#self.browser.quit()
 
 	def test_can_start_to_create_scrapbook(self):
 		# Opens Firefox and inputs the URL localhost:8000
@@ -83,7 +84,8 @@ class Welcome(unittest.TestCase):
 		mode_inputbox = self.browser.find_element_by_name('every')
 		# For example, she chose "daily", for the mode, she entered 3 and chose
 		# "Hours", then she has to upload photos every 3 hours each day.
-		mode_inputbox.send_keys('7')
+		mode_inputbox.send_keys('3')
+
 		select_mode = Select(self.browser.find_element_by_name('mode'))
 		select_mode.select_by_visible_text('Days')
 
