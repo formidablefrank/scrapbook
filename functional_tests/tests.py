@@ -5,11 +5,15 @@ from selenium import webdriver
 from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.support.ui import Select
 
+from django.test import LiveServerTestCase
 
-class Welcome(unittest.TestCase):
+
+
+class Welcome(LiveServerTestCase):
 	def setUp(self):
 		self.browser = webdriver.Firefox()
-		self.browser.implicitly_wait(5)
+		#self.browser.implicitly_wait(5)
+		self.browser.get(self.live_server_url)
 
 	def tearDown(self):
 		time.sleep(3)
@@ -107,5 +111,5 @@ class Welcome(unittest.TestCase):
 
 		time.sleep(5)
 
-if __name__ == '__main__': #
-	unittest.main(warnings='ignore')
+#if __name__ == '__main__': #
+#	unittest.main(warnings='ignore')
