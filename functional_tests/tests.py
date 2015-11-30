@@ -19,7 +19,7 @@ class Welcome(LiveServerTestCase):
 
 	def tearDown(self):
 		time.sleep(3)
-		self.browser.quit()
+		#self.browser.quit()
 
 	def test_can_start_to_create_scrapbook(self):
 		# Opens Firefox and inputs the URL localhost:8000
@@ -116,17 +116,17 @@ class Welcome(LiveServerTestCase):
 		success_message = self.browser.find_element_by_name('success-message').text
 		self.assertIn("Success", success_message)
 
-		# THIS SHOULD BE THE UNIT TEST AND IDEALLY IT SHOULD BE PLACED SEPARATELY FROM THE FUNCTIONAL TEST. 
+		# THIS SHOULD BE THE UNIT TEST AND IDEALLY IT SHOULD BE PLACED SEPARATELY FROM THE FUNCTIONAL TEST.
 		# BUT SINCE ALL TESTS ARE JUST IN ONE FOLDER, I WILL INCLUDE THIS HERE - gushi
 
 		# IF THE SCRAPBOOK WAS SUCCESSFULLY CREATED, THE USER WILL CLICK THE DASHBOARD
 		dashboard_link = self.browser.find_element_by_link_text("A Life's Journey")
 		dashboard_link.click()
 
-		# AND FIND THE NEW SCRAPBOOK LISTED ON THE SIDE PANEL: 
+		# AND FIND THE NEW SCRAPBOOK LISTED ON THE SIDE PANEL:
 		current_scrapbook = self.browser.find_element_by_link_text('Current: Baby Bae First Twelve Months')
 
-	
+
 	def test_can_upload_to_current_scrapbook(self):
 		# Opens Firefox and inputs the URL localhost:8000
 		self.browser.get('localhost:8000/')
@@ -161,7 +161,7 @@ class Welcome(LiveServerTestCase):
 		login_link.click()
 
 		# User clicks the current scrapbook to upload a photo
-		current_scrapbook = self.browser.find_element_by_link_text('Current: Baby Bae First Twelve Months')	
+		current_scrapbook = self.browser.find_element_by_link_text('Current: Baby Bae First Twelve Months')
 		current_scrapbook.click()
 
 		# User selects the Upload Photo module
@@ -176,12 +176,17 @@ class Welcome(LiveServerTestCase):
 		caption = self.browser.find_element_by_name('caption')
 		caption.send_keys("This is Baby Bae's first teddy bear!")
 
-		# User uploads a photo. For testing purposes, 
-		# I placed images to "upload" in Desktop
-		self.browser.find_element_by_id("image").send_keys("~/Desktop/teddybear.jpeg")
-		
+		# User uploads a photo. For testing purposes,
+		# I placed images to "upload" in webapp/images
+		upload_image = self.browser.find_element_by_name("image")
+		upload_image.send_keys("~/scrapbook/webapp/images/teddybear.jpeg")
+		#upload_image.click()
+		time.sleep(10)
 
 		# IF UPLOAD WAS SUCCESSFUL
+		submit_button = self.browser.find_element_by_name('submit')
+		submit_button.click()
+		time.sleep(5)
 		# USER SHOULD BE ABLE TO VIEW THE PHOTO
 		# FINISH TEST HERE
 
