@@ -25,7 +25,9 @@ def create(request):
     scrapbooks = Scrapbook.objects.filter(active = 0)
     activebook = Scrapbook.getActive()
     if request.POST:
-        activebook.archive()
+        if activebook != 0:
+            activebook.archive()
+        
         myDate = request.POST['start_date'].split('/')
         newDate = date(int(myDate[2]), int(myDate[0]), int(myDate[1]))
         new_scrap = Scrapbook()

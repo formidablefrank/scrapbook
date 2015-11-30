@@ -1,23 +1,25 @@
 import unittest
 import selenium
 import time
+
 from selenium import webdriver
+
 from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.support.ui import Select
 
+
 from django.test import LiveServerTestCase
-
-
 
 class Welcome(LiveServerTestCase):
 	def setUp(self):
+
 		self.browser = webdriver.Firefox()
 		#self.browser.implicitly_wait(5)
-		self.browser.get(self.live_server_url)
+		self.browser.get(self.live_server_url) #dif of this with create_scrapbook?
 
 	def tearDown(self):
 		time.sleep(3)
-		#self.browser.quit()
+		self.browser.quit()
 
 	def test_can_start_to_create_scrapbook(self):
 		# Opens Firefox and inputs the URL localhost:8000
@@ -110,6 +112,79 @@ class Welcome(LiveServerTestCase):
 		submit_box.click()
 
 		time.sleep(5)
+
+		success_message = self.browser.find_element_by_name('success-message').text
+		self.assertIn("Success", success_message)
+
+		# THIS SHOULD BE THE UNIT TEST AND IDEALLY IT SHOULD BE PLACED SEPARATELY FROM THE FUNCTIONAL TEST. 
+		# BUT SINCE ALL TESTS ARE JUST IN ONE FOLDER, I WILL INCLUDE THIS HERE - gushi
+
+		# IF THE SCRAPBOOK WAS SUCCESSFULLY CREATED, THE USER WILL CLICK THE DASHBOARD
+		dashboard_link = self.browser.find_element_by_link_text("A Life's Journey")
+		dashboard_link.click()
+
+		# AND FIND THE NEW SCRAPBOOK LISTED ON THE SIDE PANEL: 
+		current_scrapbook = self.browser.find_element_by_link_text('Current: Baby Bae First Twelve Months')
+
+	
+	def test_can_upload_to_current_scrapbook(self):
+		# Opens Firefox and inputs the URL localhost:8000
+		self.browser.get('localhost:8000/')
+
+		# Notices a the browser title labeled Welcome
+		self.assertIn("A Life's Journey - Welcome", self.browser.title)
+
+		# She reads the header text Welcome
+		header_h1_text = self.browser.find_element_by_tag_name('h1').text
+		self.assertIn("A Life's Journey", header_h1_text)
+
+		# reading further after the header the text
+		body_text=self.browser.find_element_by_tag_name('body').text
+		self.assertIn("Keeping memories that's better than ever.", body_text)
+
+		# and notices the text Get Started!
+		start_link = self.browser.find_element_by_xpath("//*[contains(text(),'Get Started!')]")
+
+		# She clicks the Get Started!
+		time.sleep(3)
+		start_link.click()
+
+		# She is asked to enter her login credentials
+		username_field = self.browser.find_element_by_name('email')
+		username_field.send_keys('user@email.com')
+		password_field = self.browser.find_element_by_name('password')
+		password_field.send_keys('pass')
+		login_link = self.browser.find_element_by_link_text('Login')
+
+		# She clicked the Login button
+		time.sleep(3)
+		login_link.click()
+
+		# User clicks the current scrapbook to upload a photo
+		current_scrapbook = self.browser.find_element_by_link_text('Current: Baby Bae First Twelve Months')	
+		current_scrapbook.click()
+
+		# User selects the Upload Photo module
+		upload_photo = self.browser.find_element_by_name("uploader")
+		upload_photo.click()
+		time.sleep(2)
+		# User puts the name of the picture
+		photo_name = self.browser.find_element_by_name('name')
+		photo_name.send_keys("Baby Bae's First Teddy Bear")
+
+		# User puts a caption describing the picture
+		caption = self.browser.find_element_by_name('caption')
+		caption.send_keys("This is Baby Bae's first teddy bear!")
+
+		# User uploads a photo. For testing purposes, 
+		# I placed images to "upload" in Desktop
+		self.browser.find_element_by_id("image").send_keys("~/Desktop/teddybear.jpeg")
+		
+
+		# IF UPLOAD WAS SUCCESSFUL
+		# USER SHOULD BE ABLE TO VIEW THE PHOTO
+		# FINISH TEST HERE
+
 
 #if __name__ == '__main__': #
 #	unittest.main(warnings='ignore')
