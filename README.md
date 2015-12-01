@@ -1,9 +1,35 @@
+#Pitch for tomorrow's presentation
+Are you tired of organizing and publishing your scrapbooks efficiently?
+Are you tired of maintaining and updating your scrapbooks?
+Then, Team Forever (wew) presents to you, A Life's Journey Photo Scrapbook, because we keep memories that's better than ever.
+We are providing an online platform to organize current scrapbooks, integrate it with social media and export it in different formats.
+
+1. CREATE
+(Open create scrapbook interface)
+Users can create a scrapbook to organize recent photos and see gradual progress of the subject in focus.
+Users can indicate how the scrapbook should be updated and the frequency of uploading photos.
+The web app has a notification system that reminds the user if he should upload a photo so that the scrapbook will still be updated.
+
+2. UPLOAD/VIEW/DELETE/DOWNLOAD PHOTOS
+(Go to dashboard)
+In the user dashboard, users can see his current scrapbook and archived scrapbooks.
+Archived scrapbooks are just closed scrapbooks where the user's goal is already met.
+(View current Scrapbook)
+After creating a scrapbook, users can now upload their photos and view them immediately.
+(Try to upload a photo)
+The web app has an elegant and intuitive interface for better user interaction.
+(View current scrapbook)
+Viewing photos can be in thumbnail mode or slideshow mode.
+(Hover at different photos)
+In thumbnail mode, photos are arranged chronologically and a specific photo can be viewed in slideshow mode or delete it.
+In slideshow mode, a photo can be downloaded or shared in social media sites like Facebook and Twitter.
+
 #Reminder
 Every time you edit this repo, make sure you have pulled the repo first, update dependencies, and update your migrations.
 ```
 git pull origin master (https)
 git pull -u origin master (SSH)
-pip3 instal -r requirements.txt
+pip3 install -r requirements.txt
 python3 manage.py makemigrations
 python3 manage.py migrate
 ```
