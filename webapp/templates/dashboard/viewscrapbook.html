@@ -8,6 +8,17 @@
     <p><b>Date Started:</b> {{book.start_date}}</p>
     <p><b>Description:</b> {{ book.description }}</p>
 
+    {% if not book.active %}
+    <div class="ui icon floating error message">
+        <i class="warning circle icon"></i> &nbsp;
+        <div class="content">
+            <div class="header">
+                Scrapbook Closed
+            </div>
+            <p>You cannot upload photos anymore.</p>
+        </div>
+    </div>
+    {% endif %}
     {% if book.picture_set.all|length == 0 %}
     <div class="ui icon floating error message">
         <i class="warning circle icon"></i> &nbsp;
@@ -20,7 +31,7 @@
     </div>
     {% else %}
     <div class="ui divider"></div>
-    <div class="ui four stackable link cards">
+    <div class="ui three stackable link cards">
         {% for picture in book.picture_set.all %}
         <div class="ui fluid black card">
             <div class="image">
@@ -66,6 +77,7 @@
 </div>
 
 <div class="ui segment" id="upload">
+{% if book.active %}
 <h2>Upload A Photo</h2>
 <form class="ui form" action="{% url 'upload' book.id %}" method="POST" enctype="multipart/form-data">
     {% csrf_token %}
@@ -83,11 +95,12 @@
     </div>
     <button class="ui blue button" name='submit' type="submit">Submit</button>
 </form>
+{% endif %}
 <h2>Options</h2>
 {% if book.active %}
 <a class="ui orange button" href="{% url 'archive' book.id %}">Archive</a>
 {% else %}
-<a class="ui green button" href="{% url 'activate' book.id %}">Activate</a>
+<!--<a class="ui green button" href="{% url 'activate' book.id %}">Activate</a>-->
 {% endif %}
 <a class="ui red button" href="{% url 'deleteBook' book.id %}">Delete</a>
 

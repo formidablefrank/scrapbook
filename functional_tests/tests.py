@@ -11,10 +11,10 @@ from selenium.webdriver.support.ui import Select
 from django.test import LiveServerTestCase
 
 class Welcome(LiveServerTestCase):
-	def setUp(self):
 
+	def setUp(self):
 		self.browser = webdriver.Firefox()
-		#self.browser.implicitly_wait(5)
+		self.browser.implicitly_wait(51)
 		self.browser.get(self.live_server_url) #dif of this with create_scrapbook?
 
 	def tearDown(self):
@@ -125,7 +125,12 @@ class Welcome(LiveServerTestCase):
 
 		# AND FIND THE NEW SCRAPBOOK LISTED ON THE SIDE PANEL:
 		current_scrapbook = self.browser.find_element_by_link_text('Current: Baby Bae First Twelve Months')
+		current_scrapbook.click()
+		time.sleep(2)
+		current_scrapbook = self.browser.find_element_by_link_text('View Scrapbook')
+		current_scrapbook.click()
 
+		print('Create scrapbook functional test completed.')
 
 	def test_can_upload_to_current_scrapbook(self):
 		# Opens Firefox and inputs the URL localhost:8000
@@ -160,36 +165,41 @@ class Welcome(LiveServerTestCase):
 		time.sleep(3)
 		login_link.click()
 
-		# User clicks the current scrapbook to upload a photo
+		#UPLOAD SEVERAL PHOTOS
+		filenames = ['teddybear', 'cute-baby-boy-01', 'cute-baby-boy-02', 'cute-baby-boy-03']
+
+		for index, filename in enumerate(filenames):
+			current_scrapbook = self.browser.find_element_by_link_text('Current: Baby Bae First Twelve Months')
+			current_scrapbook.click()
+			time.sleep(1)
+			# User selects the Upload Photo module
+			upload_photo = self.browser.find_element_by_name("uploader")
+			time.sleep(1)
+			upload_photo.click()
+			# User puts the name of the picture
+			photo_name = self.browser.find_element_by_name('name')
+			photo_name.send_keys("Baby Bae's photo " + str(index))
+
+			# User puts a caption describing the picture
+			caption = self.browser.find_element_by_name('caption')
+			caption.send_keys("Yo baby so cuuuuute!" + str(index))
+
+			# User uploads a photo. For testing purposes,
+			# I placed images to "upload" in webapp/images
+			upload_image = self.browser.find_element_by_name("image")
+			upload_image.send_keys("~/scrapbook/assets/test_images/" + filename + '.jpg')
+			time.sleep(2)
+
+			# IF UPLOAD WAS SUCCESSFUL
+			submit_button = self.browser.find_element_by_name('submit')
+			submit_button.click()
+			time.sleep(1)
+
+		print('Upload photos to scrapbook testing successful.')
+
+		# AND FIND THE NEW SCRAPBOOK LISTED ON THE SIDE PANEL:
 		current_scrapbook = self.browser.find_element_by_link_text('Current: Baby Bae First Twelve Months')
 		current_scrapbook.click()
-
-		# User selects the Upload Photo module
-		upload_photo = self.browser.find_element_by_name("uploader")
-		upload_photo.click()
-		time.sleep(2)
-		# User puts the name of the picture
-		photo_name = self.browser.find_element_by_name('name')
-		photo_name.send_keys("Baby Bae's First Teddy Bear")
-
-		# User puts a caption describing the picture
-		caption = self.browser.find_element_by_name('caption')
-		caption.send_keys("This is Baby Bae's first teddy bear!")
-
-		# User uploads a photo. For testing purposes,
-		# I placed images to "upload" in webapp/images
-		upload_image = self.browser.find_element_by_name("image")
-		upload_image.send_keys("~/scrapbook/webapp/images/teddybear.jpeg")
-		#upload_image.click()
-		time.sleep(10)
-
-		# IF UPLOAD WAS SUCCESSFUL
-		submit_button = self.browser.find_element_by_name('submit')
-		submit_button.click()
-		time.sleep(5)
-		# USER SHOULD BE ABLE TO VIEW THE PHOTO
-		# FINISH TEST HERE
-
-
-#if __name__ == '__main__': #
-#	unittest.main(warnings='ignore')
+		time.sleep(1)
+		current_scrapbook = self.browser.find_element_by_link_text('View Scrapbook')
+		current_scrapbook.click()
