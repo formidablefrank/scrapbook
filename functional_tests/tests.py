@@ -14,7 +14,7 @@ class Welcome(LiveServerTestCase):
 
 	@classmethod
 	def setUp(self):
-		self.browser = webdriver.Firefox()
+		self.browser = webdriver.Chrome()
 		self.browser.implicitly_wait(51)
 		#self.browser.get(self.live_server_url) #dif of this with create_scrapbook?
 
