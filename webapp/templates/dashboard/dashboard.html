@@ -21,7 +21,7 @@
     </div>
 </div>
 <div class="ui bottom attached segment pushable">
-    <div style="" class="ui fixed left vertical inverted accordion menu sidebar visible">
+    <div style="" > <!-- class="ui fixed left vertical inverted accordion menu sidebar visible"--> 
         <a class="item {% if create %} active blue {% endif %}" href="{% url 'create' %}">
             <i class="add icon"></i>
             Create A Scrapbook
@@ -33,7 +33,7 @@
                 Current: {{ activebook.name }}
             </a>
             <div class="content">
-                <div class="ui middle aligned selection animated inverted list">
+                <div > <!-- class="ui middle aligned selection animated inverted list"-->
                 <a class="item" href="{% url 'view' activebook.id %}">
                     <i class="eye icon"></i>
                     View Scrapbook

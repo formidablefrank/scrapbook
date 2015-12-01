@@ -17,11 +17,6 @@ class Welcome(LiveServerTestCase):
 		#self.browser.implicitly_wait(5)
 		self.browser.get(self.live_server_url) #dif of this with create_scrapbook?
 
-	def tearDown(self):
-		time.sleep(3)
-		#self.browser.quit()
-
-	def test_can_start_to_create_scrapbook(self):
 		# Opens Firefox and inputs the URL localhost:8000
 		self.browser.get('localhost:8000/')
 
@@ -54,6 +49,12 @@ class Welcome(LiveServerTestCase):
 		time.sleep(3)
 		login_link.click()
 
+	def tearDown(self):
+		time.sleep(3)
+		self.browser.quit()
+
+	def test_can_start_to_create_scrapbook(self):
+		
 		# This time it is the Create Scrapbook page opens
 		# She notices a text "Create A Scrapbook"
 		# She decided to create a scrapbook so she click on this link
@@ -128,38 +129,7 @@ class Welcome(LiveServerTestCase):
 
 
 	def test_can_upload_to_current_scrapbook(self):
-		# Opens Firefox and inputs the URL localhost:8000
-		self.browser.get('localhost:8000/')
-
-		# Notices a the browser title labeled Welcome
-		self.assertIn("A Life's Journey - Welcome", self.browser.title)
-
-		# She reads the header text Welcome
-		header_h1_text = self.browser.find_element_by_tag_name('h1').text
-		self.assertIn("A Life's Journey", header_h1_text)
-
-		# reading further after the header the text
-		body_text=self.browser.find_element_by_tag_name('body').text
-		self.assertIn("Keeping memories that's better than ever.", body_text)
-
-		# and notices the text Get Started!
-		start_link = self.browser.find_element_by_xpath("//*[contains(text(),'Get Started!')]")
-
-		# She clicks the Get Started!
-		time.sleep(3)
-		start_link.click()
-
-		# She is asked to enter her login credentials
-		username_field = self.browser.find_element_by_name('email')
-		username_field.send_keys('user@email.com')
-		password_field = self.browser.find_element_by_name('password')
-		password_field.send_keys('pass')
-		login_link = self.browser.find_element_by_link_text('Login')
-
-		# She clicked the Login button
-		time.sleep(3)
-		login_link.click()
-
+		
 		# User clicks the current scrapbook to upload a photo
 		current_scrapbook = self.browser.find_element_by_link_text('Current: Baby Bae First Twelve Months')
 		current_scrapbook.click()
@@ -188,7 +158,9 @@ class Welcome(LiveServerTestCase):
 		submit_button.click()
 		time.sleep(5)
 		# USER SHOULD BE ABLE TO VIEW THE PHOTO
-		# FINISH TEST HERE
+
+	#def test_can_view_current_scrapbook(self):
+
 
 
 #if __name__ == '__main__': #
