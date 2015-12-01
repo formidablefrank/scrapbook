@@ -1,10 +1,11 @@
 #Reminder
-Every time you edit this repo, make sure you have pulled the repo first, and update your migrations.
+Every time you edit this repo, make sure you have pulled the repo first, update dependencies, and update your migrations.
 ```
 git pull origin master (https)
 git pull -u origin master (SSH)
+pip3 instal -r requirements.txt
 python3 manage.py makemigrations
-pythom3 manage.py migrate
+python3 manage.py migrate
 ```
 
 #How to run the app
