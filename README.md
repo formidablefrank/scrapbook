@@ -16,31 +16,20 @@
 
 
 CS 260 - Advanced Software Engineering
-
 Department of Computer Science
-
 National Graduate School of Engineering
-
 University of the Philippines Diliman
-
 
 
 *In applying test-driven development and a necessary requirement for completion of the said course.*
 
 **Development Environment**
-
 *Backend Framework*: Django 1.8, Python 3.5
-
 *Backend Dependencies*: *see 'requirements.txt'*
-
 *Testing Library*: Python Unit Test, Selenium
-
 *Frontend Framework*: Semantic UI, JQueryUI
-
 *Asset Management*: Gulp
-
 *IDE*: Jetbrains PyCharms *Community Edition*
-
 
 
 ## Pitch for tomorrow's presentation
