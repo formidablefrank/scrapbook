@@ -15,7 +15,7 @@ class Welcome(LiveServerTestCase):
 	def setUp(self):
 		self.browser = webdriver.Firefox()
 		self.browser.implicitly_wait(51)
-		self.browser.get(self.live_server_url) #dif of this with create_scrapbook?
+		#self.browser.get(self.live_server_url) #dif of this with create_scrapbook?
 
 	def tearDown(self):
 		time.sleep(3)
@@ -23,7 +23,7 @@ class Welcome(LiveServerTestCase):
 
 	def test_can_start_to_create_scrapbook(self):
 		# Opens Firefox and inputs the URL localhost:8000
-		self.browser.get('localhost:8000/')
+		self.browser.get('localhost:8000')
 
 		# Notices a the browser title labeled Welcome
 		self.assertIn("A Life's Journey - Welcome", self.browser.title)
@@ -51,14 +51,14 @@ class Welcome(LiveServerTestCase):
 		login_link = self.browser.find_element_by_link_text('Login')
 
 		# She clicked the Login button
-		time.sleep(3)
+		time.sleep(2)
 		login_link.click()
 
 		# This time it is the Create Scrapbook page opens
 		# She notices a text "Create A Scrapbook"
 		# She decided to create a scrapbook so she click on this link
 		create_scrap_link = self.browser.find_element_by_link_text('Create A Scrapbook')
-		time.sleep(3)
+		time.sleep(2)
 		create_scrap_link.click()
 
 		# She is invited to enter a name of the scrapbook
@@ -111,7 +111,7 @@ class Welcome(LiveServerTestCase):
 		submit_box = self.browser.find_element_by_name('submit')
 		submit_box.click()
 
-		time.sleep(5)
+		time.sleep(3)
 
 		success_message = self.browser.find_element_by_name('success-message').text
 		self.assertIn("Success", success_message)
@@ -137,7 +137,7 @@ class Welcome(LiveServerTestCase):
 		self.browser.get('localhost:8000/webapp/dashboard')
 
 		#UPLOAD SEVERAL PHOTOS
-		filenames = ['teddybear', 'cute-baby-boy-01', 'cute-baby-boy-02', 'cute-baby-boy-03']
+		filenames = ['teddybear', 'cute-baby-boy-01', 'cute-baby-boy-02', 'cute-baby-boy-03', 'cute-baby-boy-04', 'cute-baby-boy-05', 'cute-baby-boy-06', 'cute-baby-boy-07']
 
 		for index, filename in enumerate(filenames):
 			current_scrapbook = self.browser.find_element_by_link_text('Current: Baby Bae First Twelve Months')
@@ -169,7 +169,7 @@ class Welcome(LiveServerTestCase):
 		print('Upload photos to scrapbook testing successful.')
 
 
-	def test_can_upload_to_current_scrapbook(self):
+	def test_can_view_photos_in_current_scrapbook(self):
 		self.browser.get('localhost:8000/webapp/dashboard')
 		# AND FIND THE NEW SCRAPBOOK LISTED ON THE SIDE PANEL:
 		current_scrapbook = self.browser.find_element_by_link_text('Current: Baby Bae First Twelve Months')

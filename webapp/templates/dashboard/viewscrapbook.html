@@ -19,7 +19,7 @@
         </div>
     </div>
     {% endif %}
-    {% if book.picture_set.all|length == 0 %}
+    {% if not book.picture_set.all|length %}
     <div class="ui icon floating error message">
         <i class="warning circle icon"></i> &nbsp;
         <div class="content">
