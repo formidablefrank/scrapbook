@@ -6,6 +6,11 @@ html {
   font-size: 14px;
 }
 
+#banner-image{
+    margin-bottom: -50px;
+    margin-top: 50px;
+}
+
 h1.hand{
     font-size: 5em !important;
 }

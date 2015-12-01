@@ -17,20 +17,20 @@
     <div class="ui inverted masthead centered segment">
         <div class="ui page grid">
             <div class="column">
-                <div class="ui secondary pointing menu">
+                <div class="ui secondary pointing fixed top menu">
                     <!--<a class="logo item">-->
                         <!--a life's journey-->
                     <!--</a>-->
-                    <a class="active item">
-                        <i class="info circle icon"></i> About
+                    <a class="item" id="homeBtn">
+                        <i class="info circle icon"></i> Home
                     </a>
-                    <a class="item">
+                    <a class="item" id="featuresBtn">
                         <i class="tasks icon"></i> Features
                     </a>
-                    <a class="item">
+                    <a class="item" id="recentBtn">
                         <i class="github icon"></i> Recent Works
                     </a>
-                    <a class="item">
+                    <a class="item" id="clientsBtn">
                         <i class="globe icon"></i> Clients
                     </a>
                     <div class="right menu">
@@ -60,13 +60,13 @@
                         <div class="hidden content">Login</div>
                     </a>
                     <div class="ui centered image">
-                        <img src="{% static 'img/banner.png' %}"/>
+                        <img src="{% static 'img/banner2.png' %}" id="banner-image"/>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-    <div class="ui vertical feature segment">
+    <div class="ui vertical feature segment" id="features">
         <div class="ui centered page grid">
             <div class="fourteen wide column">
                 <div class="ui three column center aligned stackable divided grid">
@@ -110,7 +110,7 @@
             </div>
         </div>
     </div>
-    <div class="ui recent-works vertical segment">
+    <div class="ui recent-works vertical segment" id="recent">
         <div class="ui very relaxed stackable centered page grid">
             <div class="row">
                 <div class="eight wide centered column">
@@ -126,10 +126,10 @@
                     <div class="column">
                         <div class="ui card" data-html="<div class='header'>User Rating</div><div class='content'><div class='ui star rating'><i class='active icon'></i><i class='active icon'></i><i class='active icon'></i><i class='icon'></i><i class='icon'></i></div></div>">
                             <div class="image">
-                                <img src="{% static 'img/totoro-horizontal.jpg' %}">
+                                <img src="{% static 'test_images/cute-baby-boy-05.jpg' %}">
                             </div>
                             <div class="content">
-                                <div class="header">My Neighbor Totoro</div>
+                                <div class="header">Baby Bae 1</div>
                                 <div class="description">
                                     Two sisters move to the country with their father in order to be closer to their
                                     hospitalized mother, and discover the surrounding trees are inhabited by magical
@@ -143,7 +143,7 @@
                                 </div>
                                 <div class="ui teal button">
                                     <i class="unhide icon"></i>
-                                    Watch
+                                    View
                                 </div>
                             </div>
                         </div>
@@ -151,10 +151,10 @@
                     <div class="column">
                         <div class="ui card" data-html="<div class='header'>User Rating</div><div class='content'><div class='ui star rating'><i class='active icon'></i><i class='active icon'></i><i class='active icon'></i><i class='icon'></i><i class='icon'></i></div></div>">
                             <div class="image">
-                                <img src="{% static 'img/totoro-horizontal.jpg' %}">
+                                <img src="{% static 'test_images/cute-baby-boy-02.jpg' %}">
                             </div>
                             <div class="content">
-                                <div class="header">My Neighbor Totoro</div>
+                                <div class="header">Baby Bae 2</div>
                                 <div class="description">
                                     Two sisters move to the country with their father in order to be closer to their
                                     hospitalized mother, and discover the surrounding trees are inhabited by magical
@@ -168,7 +168,7 @@
                                 </div>
                                 <div class="ui teal button">
                                     <i class="unhide icon"></i>
-                                    Watch
+                                    View
                                 </div>
                             </div>
                         </div>
@@ -176,10 +176,10 @@
                     <div class="column">
                         <div class="ui card" data-html="<div class='header'>User Rating</div><div class='content'><div class='ui star rating'><i class='active icon'></i><i class='active icon'></i><i class='active icon'></i><i class='icon'></i><i class='icon'></i></div></div>">
                             <div class="image">
-                                <img src="{% static 'img/totoro-horizontal.jpg' %}">
+                                <img src="{% static 'test_images/cute-baby-boy-01.jpg' %}">
                             </div>
                             <div class="content">
-                                <div class="header">My Neighbor Totoro</div>
+                                <div class="header">Baby Bae 3</div>
                                 <div class="description">
                                     Two sisters move to the country with their father in order to be closer to their
                                     hospitalized mother, and discover the surrounding trees are inhabited by magical
@@ -193,7 +193,7 @@
                                 </div>
                                 <div class="ui teal button">
                                     <i class="unhide icon"></i>
-                                    Watch
+                                    View
                                 </div>
                             </div>
                         </div>
@@ -202,7 +202,7 @@
             </div>
         </div>
     </div>
-    <div class="ui vertical segment">
+    <div class="ui vertical segment" id="clients">
         <div class="ui stackable center aligned page grid">
             <div class="row">
                 <div class="eight wide column">

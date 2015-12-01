@@ -56,5 +56,30 @@ $(document)
 
     setInterval(changeSides, 3000);
 
+    $('#homeBtn').on('click', function(e){
+        e.preventDefault();
+        $('html, body').animate({
+            scrollTop: $("#home").offset().top
+        }, 800);
+    });
+    $('#featuresBtn').on('click', function(e){
+        e.preventDefault();
+        $('html, body').animate({
+            scrollTop: $("#features").offset().top - 100
+        }, 800);
+    });
+    $('#recentBtn').on('click', function(e){
+        e.preventDefault();
+        $('html, body').animate({
+            scrollTop: $("#recent").offset().top - 50
+        }, 800);
+    });
+    $('#clientsBtn').on('click', function(e){
+        e.preventDefault();
+        $('html, body').animate({
+            scrollTop: $("#clients").offset().top - 50
+        }, 800);
+    });
+
   })
 ;
