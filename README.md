@@ -9,7 +9,6 @@ python3 manage.py migrate
 ```
 
 #How to run the app
-
 Go to Linux terminal then follow the steps below:
 
 Update software. Install python3.4, pip3, django1.8
@@ -184,4 +183,16 @@ Install the following package, make a symlink then reinstall project dependencie
 sudo apt-get install libjpeg62-turbo-dev
 sudo ln -s /usr/lib/x86_64-linux-gnu/libjpeg.so /usr/lib
 pip3 install -r requirements.txt
+```
+
+
+
+#Testing
+1. Testing the whole suite
+2. Testing a specific case in the suite
+3. Testing unit tests on the model
+```
+python3 manage.py test functional_tests
+python3 manage.py test functional_tests.tests.Welcome.test_can_view_photos_in_current_scrapbook
+python3 manage.py test scrapbook
 ```

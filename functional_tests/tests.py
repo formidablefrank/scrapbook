@@ -12,11 +12,13 @@ from django.test import LiveServerTestCase
 
 class Welcome(LiveServerTestCase):
 
+	@classmethod
 	def setUp(self):
 		self.browser = webdriver.Firefox()
 		self.browser.implicitly_wait(51)
 		#self.browser.get(self.live_server_url) #dif of this with create_scrapbook?
 
+	@classmethod
 	def tearDown(self):
 		time.sleep(3)
 		#self.browser.quit()
@@ -137,7 +139,7 @@ class Welcome(LiveServerTestCase):
 		self.browser.get('localhost:8000/webapp/dashboard')
 
 		#UPLOAD SEVERAL PHOTOS
-		filenames = ['teddybear', 'cute-baby-boy-01', 'cute-baby-boy-02', 'cute-baby-boy-03', 'cute-baby-boy-04', 'cute-baby-boy-05', 'cute-baby-boy-06', 'cute-baby-boy-07']
+		filenames = ['cute-baby-boy-01', 'cute-baby-boy-02', 'cute-baby-boy-03', 'cute-baby-boy-04', 'cute-baby-boy-05', 'cute-baby-boy-06', 'cute-baby-boy-07', 'teddybear']
 
 		for index, filename in enumerate(filenames):
 			current_scrapbook = self.browser.find_element_by_link_text('Current: Baby Bae First Twelve Months')
@@ -153,7 +155,7 @@ class Welcome(LiveServerTestCase):
 
 			# User puts a caption describing the picture
 			caption = self.browser.find_element_by_name('caption')
-			caption.send_keys("Yo baby so cuuuuute!" + str(index))
+			caption.send_keys("Yo baby Bae so cuuuuute!" + str(index))
 
 			# User uploads a photo. For testing purposes,
 			# I placed images to "upload" in webapp/images
@@ -175,5 +177,13 @@ class Welcome(LiveServerTestCase):
 		current_scrapbook = self.browser.find_element_by_link_text('Current: Baby Bae First Twelve Months')
 		current_scrapbook.click()
 		time.sleep(1)
-		current_scrapbook = self.browser.find_element_by_link_text('View Scrapbook')
-		current_scrapbook.click()
+		view_scrapbook = self.browser.find_element_by_link_text('View Scrapbook')
+		view_scrapbook.click()
+
+		view_photo = self.browser.find_element_by_link_text("View")
+		view_photo.click()
+		time.sleep(2)
+
+		close_photo = self.browser.find_element_by_css_selector(".ui.deny.button")
+		print(close_photo)
+		self.browser.execute_script('return arguments[0].scrollIntoView();', close_photo)
