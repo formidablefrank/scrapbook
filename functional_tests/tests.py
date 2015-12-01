@@ -14,7 +14,7 @@ class Welcome(LiveServerTestCase):
 
 	@classmethod
 	def setUp(self):
-		self.browser = webdriver.Chrome()
+		self.browser = webdriver.Firefox()
 		self.browser.implicitly_wait(51)
 		#self.browser.get(self.live_server_url) #dif of this with create_scrapbook?
 
@@ -184,6 +184,6 @@ class Welcome(LiveServerTestCase):
 		view_photo.click()
 		time.sleep(2)
 
-		close_photo = self.browser.find_element_by_css_selector(".ui.deny.button")
-		print(close_photo)
-		self.browser.execute_script('return arguments[0].scrollIntoView();', close_photo)
+		#close_photo = self.browser.find_element_by_css_selector(".ui.deny.button")
+		#self.browser.execute_script("return arguments[0].scrollIntoView();", close_photo)
+		#close_photo.click()
