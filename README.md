@@ -1,7 +1,10 @@
-Reminder: every time you edit this repo, make sure you have pulled the repo first.
+#Reminder
+Every time you edit this repo, make sure you have pulled the repo first, and update your migrations.
 ```
 git pull origin master (https)
 git pull -u origin master (SSH)
+python3 manage.py makemigrations
+pythom3 manage.py migrate
 ```
 
 #How to run the app
@@ -165,8 +168,9 @@ You can now modify 'static/src/theme.config'
 
 
 
-#Pillow Package
-First, reinstall project dependencies (given above)
+#Installing Pillow Package
+First, reinstall project dependencies as given above.
+
 If you encounter
 ```
 ValueError: --enable-jpeg requested but jpeg not found, aborting.
@@ -174,7 +178,7 @@ ValueError: --enable-jpeg requested but jpeg not found, aborting.
 during installation of Pillow, do the following:
 
 
-Install the following package,make a symlink then reinstall project dependencies again.
+Install the following package, make a symlink then reinstall project dependencies again.
 ```
 sudo apt-get install libjpeg62-turbo-dev
 sudo ln -s /usr/lib/x86_64-linux-gnu/libjpeg.so /usr/lib

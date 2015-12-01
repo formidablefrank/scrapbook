@@ -62,6 +62,18 @@
                             <!--</div>-->
                         </div>
                         <div class="actions">
+                            <a class="ui basic button" href="/{{picture.pic.url}}">
+                                <i class="download icon"></i>
+                                Download
+                            </a>
+                            <div class="ui facebook button">
+                                <i class="facebook icon"></i>
+                                Share
+                            </div>
+                            <div class="ui twitter button">
+                                <i class="twitter icon"></i>
+                                Tweet
+                            </div>
                             <div class="ui deny button">
                                 <i class="close icon"></i>
                                 Close
@@ -102,6 +114,7 @@
 {% else %}
 <!--<a class="ui green button" href="{% url 'activate' book.id %}">Activate</a>-->
 {% endif %}
+<a class="ui red button" href="{% url 'publish' book.id %}">Publish</a>
 <a class="ui red button" href="{% url 'deleteBook' book.id %}">Delete</a>
 
 </div>

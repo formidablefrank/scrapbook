@@ -134,36 +134,7 @@ class Welcome(LiveServerTestCase):
 
 	def test_can_upload_to_current_scrapbook(self):
 		# Opens Firefox and inputs the URL localhost:8000
-		self.browser.get('localhost:8000/')
-
-		# Notices a the browser title labeled Welcome
-		self.assertIn("A Life's Journey - Welcome", self.browser.title)
-
-		# She reads the header text Welcome
-		header_h1_text = self.browser.find_element_by_tag_name('h1').text
-		self.assertIn("A Life's Journey", header_h1_text)
-
-		# reading further after the header the text
-		body_text=self.browser.find_element_by_tag_name('body').text
-		self.assertIn("Keeping memories that's better than ever.", body_text)
-
-		# and notices the text Get Started!
-		start_link = self.browser.find_element_by_xpath("//*[contains(text(),'Get Started!')]")
-
-		# She clicks the Get Started!
-		time.sleep(3)
-		start_link.click()
-
-		# She is asked to enter her login credentials
-		username_field = self.browser.find_element_by_name('email')
-		username_field.send_keys('user@email.com')
-		password_field = self.browser.find_element_by_name('password')
-		password_field.send_keys('pass')
-		login_link = self.browser.find_element_by_link_text('Login')
-
-		# She clicked the Login button
-		time.sleep(3)
-		login_link.click()
+		self.browser.get('localhost:8000/webapp/dashboard')
 
 		#UPLOAD SEVERAL PHOTOS
 		filenames = ['teddybear', 'cute-baby-boy-01', 'cute-baby-boy-02', 'cute-baby-boy-03']
@@ -197,6 +168,9 @@ class Welcome(LiveServerTestCase):
 
 		print('Upload photos to scrapbook testing successful.')
 
+
+	def test_can_upload_to_current_scrapbook(self):
+		self.browser.get('localhost:8000/webapp/dashboard')
 		# AND FIND THE NEW SCRAPBOOK LISTED ON THE SIDE PANEL:
 		current_scrapbook = self.browser.find_element_by_link_text('Current: Baby Bae First Twelve Months')
 		current_scrapbook.click()

@@ -10,6 +10,7 @@ urlpatterns = [
     url(r'^upload/(?P<book_id>[0-9]+)$', views.upload, name='upload'),
     url(r'^archive/(?P<book_id>[0-9]+)$', views.archive, name='archive'),
     url(r'^activate/(?P<book_id>[0-9]+)$', views.activate, name='activate'),
+    url(r'^publish/(?P<book_id>[0-9]+)$', views.activate, name='publish'),
     url(r'^deletebook/(?P<book_id>[0-9]+)$', views.deleteBook, name='deleteBook'),
     url(r'^deletephoto/(?P<book_id>[0-9]+)/(?P<photo_id>[0-9]+)$', views.deletePhoto, name='deletePhoto'),
 ]
