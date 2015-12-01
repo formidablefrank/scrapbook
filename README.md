@@ -1,30 +1,108 @@
-#Pitch for tomorrow's presentation
-Are you tired of organizing and publishing your scrapbooks efficiently?
-Are you tired of maintaining and updating your scrapbooks?
-Then, Team Forever (wew) presents to you, A Life's Journey Photo Scrapbook, because we keep memories that's better than ever.
-We are providing an online platform to organize current scrapbooks, integrate it with social media and export it in different formats.
+# A Life's Journey
+## Photo Scrapbook
+### *Keeping memories that's better than ever.*
 
-1. CREATE
+
+**Developers**
+- Francis Dimzon
+- Gushi Montes
+- Frank Rayo
+- Herbie Villafranca
+- JP Yusiong
+
+
+**Adviser**
+- Prof. Susan Festin
+
+
+CS 260 - Advanced Software Engineering
+
+Department of Computer Science
+
+National Graduate School of Engineering
+
+University of the Philippines Diliman
+
+
+
+*In applying test-driven development and a necessary requirement for completion of the said course.*
+
+**Development Environment**
+
+*Backend Framework*: Django 1.8, Python 3.5
+
+*Backend Dependencies*: *see 'requirements.txt'*
+
+*Testing Library*: Python Unit Test, Selenium
+
+*Frontend Framework*: Semantic UI, JQueryUI
+
+*Asset Management*: Gulp
+
+*IDE*: Jetbrains PyCharms *Community Edition*
+
+
+
+## Pitch for tomorrow's presentation
+- Are you tired of organizing and publishing your scrapbooks efficiently?
+- Are you tired of maintaining and updating your scrapbooks?
+- We, Team Forever :3 presents to you, *A Life's Journey Photo Scrapbook* keeping memories that's better than ever.
+- We are providing an online platform to organize current scrapbooks, integrate it with social media and export it in different formats.
+
+### Create Scrapbook
+
 (Open create scrapbook interface)
-Users can create a scrapbook to organize recent photos and see gradual progress of the subject in focus.
-Users can indicate how the scrapbook should be updated and the frequency of uploading photos.
-The web app has a notification system that reminds the user if he should upload a photo so that the scrapbook will still be updated.
+- Users can create a scrapbook to organize recent photos and see gradual progress of the subject in focus.
+- Users can indicate how the scrapbook should be updated and the frequency of uploading photos.
+- The web app has a notification system that reminds the user if he should upload a photo so that the scrapbook will still be updated.
 
-2. UPLOAD/VIEW/DELETE/DOWNLOAD PHOTOS
-(Go to dashboard)
-In the user dashboard, users can see his current scrapbook and archived scrapbooks.
-Archived scrapbooks are just closed scrapbooks where the user's goal is already met.
-(View current Scrapbook)
-After creating a scrapbook, users can now upload their photos and view them immediately.
-(Try to upload a photo)
-The web app has an elegant and intuitive interface for better user interaction.
-(View current scrapbook)
-Viewing photos can be in thumbnail mode or slideshow mode.
-(Hover at different photos)
-In thumbnail mode, photos are arranged chronologically and a specific photo can be viewed in slideshow mode or delete it.
-In slideshow mode, a photo can be downloaded or shared in social media sites like Facebook and Twitter.
+### Upload/View/Share/Delete Photos
 
-#Reminder
+- (Go to dashboard)
+- In the user dashboard, users can see his current scrapbook and archived scrapbooks.
+- Archived scrapbooks are just closed scrapbooks where the user's goal is already met.
+- (View current Scrapbook)
+- After creating a scrapbook, users can now upload their photos and view them immediately.
+- The user just need to input the name of the picture and its description.
+- (Try to upload a photo)
+- The web app has an elegant and intuitive interface for better user interaction.
+- (View current scrapbook)
+- Viewing photos can be in thumbnail mode or slideshow mode.
+- (Hover at different photos)
+- In thumbnail mode, photos are arranged chronologically and a specific photo can be viewed in slideshow mode or delete it.
+- (Click the view button)
+- In slideshow mode, a photo can be downloaded or shared in social media sites like Facebook and Twitter.
+- Again, the webapp will notify the user if he should upload more photos to keep the recent scrapbook updated.
+
+### Close Scrapbook
+
+- If the user has already completed the scrapbook and met his goal, he can already archive or close the scrapbook.
+- Closing the scrapbook will make it read-only and photos cannot be uploaded anymore.
+
+### Publish Scrapbook
+
+- This webapp also provides the user ways on how to export scrapbooks in printable formats like PDF.
+
+### Conclusion
+- Say goodbye to hardbound and thick photo albums!
+- This is more than just Instagram or Flickr or Photobucket.
+- Using cloud storage, we offer everyone more flexibility in managing their active scrapbooks and access them anytime, anywhere.
+- Because we believe that treasuring memories better should be easy as much as possible
+- Again, this is *A Life's Journey Photo Scrapbook*, keeping memories that's better than ever.
+
+### Appendix: *What other features can be implemented*
+- User management and authentication system
+- Email notification system
+- Edit photo name, edit description
+- Download whole scrapbook
+- Social media API integration for sharing
+- Maps API integration for geospatial visualization
+- Making video slide shows
+- Publish as AVI video
+
+------------------------------------------------------------------------------------------------------------------------
+
+#Development Reminders
 Every time you edit this repo, make sure you have pulled the repo first, update dependencies, and update your migrations.
 ```
 git pull origin master (https)
@@ -222,3 +300,6 @@ python3 manage.py test functional_tests
 python3 manage.py test functional_tests.tests.Welcome.test_can_view_photos_in_current_scrapbook
 python3 manage.py test scrapbook
 ```
+
+#Markdown Basics
+Click the link: [Visit Github!](https://help.github.com/articles/markdown-basics/)
