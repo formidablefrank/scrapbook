@@ -4,17 +4,17 @@
 
 <h1 class="ui header">Create Scrapbook</h1>
 
-{% if success %}
-<div class="ui icon floating info message">
-    <i class="check icon"></i> &nbsp;
-    <div class="content">
-        <div class="header" name="success-message">
-            Success
-        </div>
-        <p>Yay</p>
-    </div>
-</div>
-{% endif %}
+<!--{% if success %}-->
+<!--<div class="ui icon floating info message">-->
+    <!--<i class="check icon"></i> &nbsp;-->
+    <!--<div class="content">-->
+        <!--<div class="header" name="success-message">-->
+            <!--Success-->
+        <!--</div>-->
+        <!--<p>Yay</p>-->
+    <!--</div>-->
+<!--</div>-->
+<!--{% endif %}-->
 
 <form class="ui form" action="{% url 'create' %}" method="post">
     {% csrf_token %}

@@ -20,13 +20,13 @@
     </div>
     {% endif %}
     {% if not book.picture_set.all|length %}
-    <div class="ui icon floating error message">
-        <i class="warning circle icon"></i> &nbsp;
+    <div class="ui icon floating success message">
+        <i class="check circle icon"></i> &nbsp;
         <div class="content">
             <div class="header">
                 Reminder
             </div>
-            <p>You have no photos in this scrapbook! Upload a photo now.</p>
+            <p>Scrapbook successfully created! Upload a photo now.</p>
         </div>
     </div>
     {% else %}
