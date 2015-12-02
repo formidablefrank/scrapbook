@@ -52,7 +52,7 @@ class Scrapbook(models.Model):
         for photo in photos:
             p.translate(inch, inch)
             image = ImageReader(photo.pic.url)
-            p.drawImage(image, 0, -100, width=lwidth/4*3, preserveAspectRatio=True)
+            p.drawImage(image, 0, -300, width=lwidth/4*3, preserveAspectRatio=True)
             p.drawString(0, 150, photo.name)
             p.drawString(0, 135, str(photo.date))
             p.drawString(0, 120, photo.caption)
