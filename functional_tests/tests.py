@@ -26,7 +26,7 @@ class Welcome(LiveServerTestCase):
     def test_suite_all_tests(self):
         self.CreateScrapbook()
         self.UploadToScrapbook()
-        # self.ViewPhotoInScrapbook()
+        self.ViewPhotoInScrapbook()
         self.ArchiveScrapbook()
 
     def CreateScrapbook(self): #test_can_start_to_create_scrapbook
@@ -145,8 +145,8 @@ class Welcome(LiveServerTestCase):
         self.browser.get('localhost:8000/webapp/dashboard')
 
         #UPLOAD SEVERAL PHOTOS
-        # filenames = ['cute-baby-boy-01', 'cute-baby-boy-02', 'cute-baby-boy-03', 'cute-baby-boy-04', 'cute-baby-boy-05', 'cute-baby-boy-06', 'cute-baby-boy-07', 'teddybear']
-        filenames = ['cute-baby-boy-01', 'cute-baby-boy-02']
+         filenames = ['cute-baby-boy-01', 'cute-baby-boy-02', 'cute-baby-boy-03', 'cute-baby-boy-04', 'cute-baby-boy-05', 'cute-baby-boy-06', 'cute-baby-boy-07', 'teddybear']
+        #filenames = ['cute-baby-boy-01', 'cute-baby-boy-02']
 
         for index, filename in enumerate(filenames):
             current_scrapbook = self.browser.find_element_by_link_text('Current: Baby Bae First Twelve Months')
