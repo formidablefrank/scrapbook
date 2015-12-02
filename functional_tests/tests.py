@@ -27,7 +27,8 @@ class Welcome(LiveServerTestCase):
         self.CreateScrapbook()
         self.UploadToScrapbook()
         # self.ViewPhotoInScrapbook()
-        self.ArchiveScrapbook()
+        #self.ArchiveScrapbook()
+        self.PublishScrapbook()
 
     def CreateScrapbook(self): #test_can_start_to_create_scrapbook
         # Opens Firefox and inputs the URL localhost:8000
@@ -234,4 +235,30 @@ class Welcome(LiveServerTestCase):
         except:
             pass
             print('Closing scrapbook functional test successful.')
+    
+    def PublishScrapbook(self):
+        print("Publishing Scrapbook.")
+        self.browser.get('localhost:8000/webapp/dashboard')
         
+        closed_scrapbooks = self.browser.find_element_by_link_text('View Closed Scrapbooks')
+        closed_scrapbooks.click()
+        time.sleep(1)
+        
+        current_scrapbook = self.browser.find_element_by_link_text('Baby Bae First Twelve Months')
+        current_scrapbook.click()
+        time.sleep(1)
+        
+#       publish_button = self.browser.find_element_by_name('Publish')
+        publish_button = self.browser.find_element_by_link_text('Publish')
+        publish_button.click()
+        time.sleep(1)
+        
+       
+       
+        #FirefoxProfile prof = new FirefoxProfile();
+ #       fp = webdriver.FirefoxProfile()
+
+  #      #Case:3 - Download to custom folder path. Replace d:\\selenium with your Download Location 
+   #     fp.set_preference("browser.download.dir","./assets/scrapbooks/");
+    #    fp.set_preference("browser.download.folderList", 2);
+     #   fp.set_preference("browser.helperApps.neverAsk.saveToDisk", "application/pdf");
