@@ -27,8 +27,8 @@ class Welcome(LiveServerTestCase):
     def test_suite_all_tests(self):
         self.CreateScrapbook()
         self.UploadToScrapbook()
-        # self.ViewPhotoInScrapbook()
-        #self.ArchiveScrapbook()
+        self.ViewPhotoInScrapbook()
+        self.ArchiveScrapbook()
         self.PublishScrapbook()
 
     def CreateScrapbook(self): #test_can_start_to_create_scrapbook
@@ -169,7 +169,8 @@ class Welcome(LiveServerTestCase):
             # User uploads a photo. For testing purposes,
             # I placed images to "upload" in webapp/images
             upload_image = self.browser.find_element_by_name("image")
-            upload_image.send_keys("~/scrapbook/assets/test_images/" + filename + '.jpg') #just for me
+            upload_image.send_keys("/home/fdd/Desktop/fddd/cs260-AdvancedSoftwareEngineering/project/scrapbook/assets/test_images/" + filename + '.jpg') #just for me (francis)
+            
             time.sleep(2)
 
             # IF UPLOAD WAS SUCCESSFUL
@@ -249,17 +250,18 @@ class Welcome(LiveServerTestCase):
         current_scrapbook.click()
         time.sleep(1)
         
-#       publish_button = self.browser.find_element_by_name('Publish')
         publish_button = self.browser.find_element_by_link_text('Publish')
         publish_button.click()
         time.sleep(1)
         
-       
-       
-        #FirefoxProfile prof = new FirefoxProfile();
- #       fp = webdriver.FirefoxProfile()
+        #When the user clicks the Publish button, the save dialog box opens to save the pdf file
+		#Since selenium cannot test system-level dialog boxes such as Save As...
+		# the test stops here.
+		
+        #our app does not generate static URL for the pdf file  so the following is not carried out.
+        #fp = webdriver.FirefoxProfile()
 
-  #      #Case:3 - Download to custom folder path. Replace d:\\selenium with your Download Location 
+        #Case:3 - Download to custom folder path. Replace d:\\selenium with your Download Location 
    #     fp.set_preference("browser.download.dir","./assets/scrapbooks/");
     #    fp.set_preference("browser.download.folderList", 2);
      #   fp.set_preference("browser.helperApps.neverAsk.saveToDisk", "application/pdf");
