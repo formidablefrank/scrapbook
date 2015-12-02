@@ -17,7 +17,6 @@
 <!--{% endif %}-->
 
 <form class="ui form" action="{% url 'create' %}" method="post">
-    {% csrf_token %}
     <div class="field">
         <label>Name of Scrapbook</label>
         <input type="text" name="name">

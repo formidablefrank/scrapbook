@@ -94,10 +94,10 @@ def publish(request, book_id):
 def deleteBook(request, book_id):
     book = Scrapbook.objects.get(id = book_id)
     book.delete()
-    return redirect('dashboard')
+    return redirect('/webapp/dashboard')
 
 
 def deletePhoto(request, book_id, photo_id):
     picture = Scrapbook.objects.get(id = book_id).picture_set.get(id = photo_id)
     picture.delete()
-    return view(request, book_id)
+    return redirect('/webapp/view/' + book_id)

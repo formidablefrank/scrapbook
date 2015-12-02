@@ -1,3 +1,4 @@
+from datetime import date
 from django.db import models
 from django.utils import timezone
 from django import forms
@@ -5,6 +6,8 @@ from django.http import HttpResponse
 from io import BytesIO
 from reportlab.pdfgen import canvas
 from reportlab.lib.units import inch
+from reportlab.lib.pagesizes import letter
+from reportlab.lib.utils import ImageReader
 
 
 # Create your models here.
@@ -42,17 +45,25 @@ class Scrapbook(models.Model):
 
         #Draw things on the PDF. Here's where the PDF generation happens.
         #See the ReportLab documentation for the full list of functionality.
-        p.translate(inch, inch)
-        p.drawString(0, 50, self.name)
-        p.drawString(0, 25, "A Life's Journey")
-        p.drawString(0, 0, "Keeping memories that's better than ever.")
 
         photos = self.picture_set.all()
-        #for photo in photos:
-            #p.drawImage(photo.pic, 100, 100)
+        lwidth, height = letter
+
+        for photo in photos:
+            p.translate(inch, inch)
+            image = ImageReader(photo.pic.url)
+            p.drawImage(image, 0, 0, width=lwidth, preserveAspectRatio=True)
+            p.drawString(0, 150, photo.name)
+            p.drawString(0, 135, str(photo.date))
+            p.drawString(0, 120, photo.caption)
+            p.setFont("Helvetica-Bold", 30)
+            p.drawString(0, 50, self.name)
+            p.setFont("Helvetica", 12)
+            p.drawString(0, 20, "A Life's Journey")
+            p.drawString(0, 0, "Keeping memories that's better than ever.")
+            p.showPage()
 
         #Close the PDF object cleanly.
-        p.showPage()
         p.save()
 
         #Get the value of BytesIO buffer and write it to the response.
@@ -77,5 +88,5 @@ class Picture(models.Model):
     scrapbook = models.ForeignKey(Scrapbook)
     name = models.CharField(max_length = 20)
     caption = models.CharField(max_length = 20)
-    date = models.DateTimeField()
+    date = models.DateTimeField(auto_now_add = True, blank = True)
     pic = models.ImageField(upload_to = 'assets/scrapbooks/', default = 'assets/no-img.jpg')

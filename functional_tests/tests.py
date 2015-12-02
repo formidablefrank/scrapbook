@@ -10,6 +10,7 @@ from selenium.webdriver.support.ui import Select
 
 from django.test import LiveServerTestCase
 
+
 class Welcome(LiveServerTestCase):
 
     @classmethod
@@ -166,7 +167,7 @@ class Welcome(LiveServerTestCase):
             # User uploads a photo. For testing purposes,
             # I placed images to "upload" in webapp/images
             upload_image = self.browser.find_element_by_name("image")
-            upload_image.send_keys("~/Documents/cs260/scrapbook/assets/test_images/" + filename + '.jpg') #just for me, 
+            upload_image.send_keys("~/scrapbook/assets/test_images/" + filename + '.jpg') #just for me,
             time.sleep(2)
 
             # IF UPLOAD WAS SUCCESSFUL
