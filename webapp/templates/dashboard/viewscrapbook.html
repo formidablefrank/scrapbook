@@ -19,14 +19,14 @@
         </div>
     </div>
     {% endif %}
-    {% if not book.picture_set.all|length %}
-    <div class="ui icon floating error message">
-        <i class="warning circle icon"></i> &nbsp;
+    {% if book.picture_set.all|length == 0 %}
+    <div class="ui icon floating success message">
+        <i class="check circle icon"></i> &nbsp;
         <div class="content">
-            <div class="header">
-                Reminder
+            <div class="header" name="success-message">
+                Success
             </div>
-            <p>You have no photos in this scrapbook! Upload a photo now.</p>
+            <p>Scrapbook successfully created! Upload a photo now.</p>
         </div>
     </div>
     {% else %}
@@ -51,7 +51,9 @@
             <div class="extra content">
                 <div class="ui two tiny buttons">
                     <a class="ui button viewPicture">View</a>
+                    {% if book.active %}
                     <a class="ui button" href="{% url 'deletePhoto' book.id picture.id%}">Delete</a>
+                    {% endif %}
                     <div class="ui large modal">
                         <div class="image content">
                             <div class="ui fluid image">

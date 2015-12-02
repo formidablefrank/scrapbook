@@ -1,6 +1,10 @@
 from django.db import models
 from django.utils import timezone
 from django import forms
+from django.http import HttpResponse
+from io import BytesIO
+from reportlab.pdfgen import canvas
+from reportlab.lib.units import inch
 
 
 # Create your models here.
@@ -26,13 +30,43 @@ class Scrapbook(models.Model):
         self.active = 1
         self.save()
 
+    def generate_pdf(self):
+        #Create the HttpResponse object with the appropriate PDF headers.
+        response = HttpResponse(content_type='application/pdf')
+        tempname = 'attachment; filename="' + self.name + ' - A Life\'s Journey.pdf"'
+        response['Content-Disposition'] = tempname
+
+        buffer = BytesIO()
+        #Create the PDF object, using the BytesIO object as its 'file'.
+        p = canvas.Canvas(buffer)
+
+        #Draw things on the PDF. Here's where the PDF generation happens.
+        #See the ReportLab documentation for the full list of functionality.
+        p.translate(inch, inch)
+        p.drawString(0, 50, self.name)
+        p.drawString(0, 25, "A Life's Journey")
+        p.drawString(0, 0, "Keeping memories that's better than ever.")
+
+        photos = self.picture_set.all()
+        #for photo in photos:
+            #p.drawImage(photo.pic, 100, 100)
+
+        #Close the PDF object cleanly.
+        p.showPage()
+        p.save()
+
+        #Get the value of BytesIO buffer and write it to the response.
+        pdf = buffer.getvalue()
+        buffer.close()
+        response.write(pdf)
+        return response
+
     @staticmethod
     def getActive():
         try:
             return Scrapbook.objects.get(active = 1)
         except Exception:
             return 0
-
 
 
 class ImageUploadForm(forms.Form):
