@@ -60,7 +60,6 @@ def view(request, book_id):
 
 
 def upload(request, book_id):
-    form = ImageUploadForm
     if request.POST:
         book = Scrapbook.objects.get(id = book_id)
         form = ImageUploadForm(request.POST, request.FILES)
