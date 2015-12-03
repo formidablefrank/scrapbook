@@ -10,6 +10,7 @@ from selenium.webdriver.support.ui import Select
 
 from django.test import LiveServerTestCase
 
+## REMINDER: before running this test suite, make sure you had the right test_images directory defined in 'UploadToScrapbook' method.
 
 class Welcome(LiveServerTestCase):
 
@@ -142,7 +143,7 @@ class Welcome(LiveServerTestCase):
 
         print('Create scrapbook functional test completed.')
 
-    def UploadToScrapbook(self): #test_can_upload_to_current_scrapbook
+    def UploadToScrapbook(self): #test_can_upload_to_current_scrapbook. Refer to lines 174-180 first before running this test!!
         # Opens Firefox and inputs the URL localhost:8000
         self.browser.get('localhost:8000/webapp/dashboard')
 
@@ -169,8 +170,13 @@ class Welcome(LiveServerTestCase):
             # User uploads a photo. For testing purposes,
             # I placed images to "upload" in webapp/images
             upload_image = self.browser.find_element_by_name("image")
-            upload_image.send_keys("/home/fdd/Desktop/fddd/cs260-AdvancedSoftwareEngineering/project/scrapbook/assets/test_images/" + filename + '.jpg') #just for me (francis)
-            
+
+            # Uncomment the line below if you cloned the repo under your home '~' directory.
+            # upload_image.send_keys("~/scrapbook/assets/test_images/" + filename + ".jpg")
+
+            # Otherwise, point the test_images directory of the repo.
+            # upload_image.send_keys("/home/fdd/Desktop/fddd/cs260-AdvancedSoftwareEngineering/project/scrapbook/assets/test_images/" + filename + '.jpg') #just for me (francis)
+
             time.sleep(2)
 
             # IF UPLOAD WAS SUCCESSFUL
@@ -194,7 +200,7 @@ class Welcome(LiveServerTestCase):
         view_photo.click()
         time.sleep(2)
 
-        
+
         #close_photo = self.browser.find_element_by_css_selector(".ui.deny.button")
         #self.browser.execute_script("return arguments[0].scrollIntoView();", close_photo)
         #close_photo.click()
@@ -233,35 +239,35 @@ class Welcome(LiveServerTestCase):
         try:
             delete_photo = self.browser.find_elements_by_link_text('Delete')
             self.fail('Can still delete photo! Scrapbook should be uneditable.')
-        
+
         except:
             pass
             print('Closing scrapbook functional test successful.')
-    
+
     def PublishScrapbook(self):
         print("Publishing Scrapbook.")
         self.browser.get('localhost:8000/webapp/dashboard')
-        
+
         closed_scrapbooks = self.browser.find_element_by_link_text('View Closed Scrapbooks')
         closed_scrapbooks.click()
         time.sleep(1)
-        
+
         current_scrapbook = self.browser.find_element_by_link_text('Baby Bae First Twelve Months')
         current_scrapbook.click()
         time.sleep(1)
-        
+
         publish_button = self.browser.find_element_by_link_text('Publish')
         publish_button.click()
         time.sleep(1)
-        
+
         #When the user clicks the Publish button, the save dialog box opens to save the pdf file
 		#Since selenium cannot test system-level dialog boxes such as Save As...
 		# the test stops here.
-		
+
         #our app does not generate static URL for the pdf file  so the following is not carried out.
         #fp = webdriver.FirefoxProfile()
 
-        #Case:3 - Download to custom folder path. Replace d:\\selenium with your Download Location 
-   #     fp.set_preference("browser.download.dir","./assets/scrapbooks/");
-    #    fp.set_preference("browser.download.folderList", 2);
-     #   fp.set_preference("browser.helperApps.neverAsk.saveToDisk", "application/pdf");
+        #Case:3 - Download to custom folder path. Replace d:\\selenium with your Download Location
+        #fp.set_preference("browser.download.dir","./assets/scrapbooks/");
+        #fp.set_preference("browser.download.folderList", 2);
+        #fp.set_preference("browser.helperApps.neverAsk.saveToDisk", "application/pdf");

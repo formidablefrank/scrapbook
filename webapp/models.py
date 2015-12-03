@@ -21,10 +21,13 @@ class Scrapbook(models.Model):
     email = models.EmailField(max_length = 50, blank = True)
     active = models.IntegerField(default = 1)
 
+    # Archive a scrapbook: just set its 'active' flag to 0.
     def archive(self):
         self.active = 0
         self.save()
 
+    # Activate a scrapbook: just set its 'active' flag to 1.
+    # Deactivate the activate scrapbook first before activating the current scrapbook.
     def activate(self):
         try:
             Scrapbook.objects.get(active = 1).archive()
@@ -33,6 +36,7 @@ class Scrapbook(models.Model):
         self.active = 1
         self.save()
 
+    # Generating pdf. Made possible by ReportLab library.
     def generate_pdf(self):
         #Create the HttpResponse object with the appropriate PDF headers.
         response = HttpResponse(content_type='application/pdf')
@@ -49,10 +53,14 @@ class Scrapbook(models.Model):
         photos = self.picture_set.all()
         lwidth, height = letter
 
+        # Dedicate a photo and its information for a page.
         for photo in photos:
             p.translate(inch, inch)
+
+            #Get the binary format of the image using its url
             image = ImageReader(photo.pic.url)
             p.drawImage(image, 0, -300, width=lwidth/4*3, preserveAspectRatio=True)
+
             p.drawString(0, 150, photo.name)
             p.drawString(0, 135, str(photo.date))
             p.drawString(0, 120, photo.caption)
@@ -70,8 +78,12 @@ class Scrapbook(models.Model):
         pdf = buffer.getvalue()
         buffer.close()
         response.write(pdf)
+        # The response object that contains the pdf
+        # is passed to the controller and passed immediately to the client for downloading
         return response
 
+
+    # Get the active method. Returns that scrapbook or null.
     @staticmethod
     def getActive():
         try:

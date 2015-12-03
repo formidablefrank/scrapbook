@@ -16,13 +16,10 @@
 
 
 
-CS 260 - Advanced Software Engineering
-
-Department of Computer Science
-
-National Graduate School of Engineering
-
-University of the Philippines Diliman
+- CS 260 - Advanced Software Engineering
+- Department of Computer Science
+- National Graduate School of Engineering
+- University of the Philippines Diliman
 
 
 
@@ -43,6 +40,19 @@ University of the Philippines Diliman
 
 *IDE*: Jetbrains PyCharms *Community Edition*
 
+
+
+#Testing
+###Reminder: before testing the whole suite, please read functional_tests/tests.py first.
+1. Testing the whole suite
+2. Testing a specific case in the suite
+3. Testing unit tests on the model
+
+```
+python3 manage.py test functional_tests
+python3 manage.py test functional_tests.tests.Welcome.test_can_view_photos_in_current_scrapbook
+python3 manage.py test scrapbook
+```
 
 
 
@@ -90,7 +100,7 @@ University of the Philippines Diliman
 - Say goodbye to hardbound and thick photo albums!
 - This is more than just Instagram or Flickr or Photobucket.
 - Using cloud storage, we offer everyone more flexibility in managing their active scrapbooks and access them anytime, anywhere.
-- Because we believe that treasuring memories better should be easy as much as possible
+- Because we believe that treasuring memories should be easy as much as possible
 - Again, this is *A Life's Journey Photo Scrapbook*, keeping memories that's better than ever.
 
 ### Appendix: *What other features can be implemented*
@@ -292,17 +302,6 @@ sudo ln -s /usr/lib/x86_64-linux-gnu/libjpeg.so /usr/lib
 pip3 install -r requirements.txt
 ```
 
-
-
-#Testing
-1. Testing the whole suite
-2. Testing a specific case in the suite
-3. Testing unit tests on the model
-```
-python3 manage.py test functional_tests
-python3 manage.py test functional_tests.tests.Welcome.test_can_view_photos_in_current_scrapbook
-python3 manage.py test scrapbook
-```
 
 #Markdown Basics
 Click the link: [Visit Github!](https://help.github.com/articles/markdown-basics/)
